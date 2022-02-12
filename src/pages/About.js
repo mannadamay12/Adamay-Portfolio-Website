@@ -43,7 +43,7 @@ const About = ({ history }) => {
       }, 400);
   }, [animateWork, animateHome, history]);
 
-  const canada = require("../assets/images/canada.jpg");
+  const canada = require("../assets/images/tiet.JPG");
 
   return (
     <Wrapper>

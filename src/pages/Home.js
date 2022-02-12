@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
-import "../assets/images/cover-img.jpg";
+import "../assets/images/cover-img.JPG";
 import {
   Wrapper,
   Article,
@@ -31,7 +31,7 @@ const Home = ({ history }) => {
         setAnimateAbout(false);
       }, 400);
   }, [animateWork, animateAbout, history]);
-  const background = require("../assets/images/cover-img.jpg");
+  const background = require("../assets/images/cover-img.JPG");
   return (
     <Wrapper>
       <WorkLink onClick={() => setAnimateWork(true)} animating={animateWork}>
@@ -43,13 +43,12 @@ const Home = ({ history }) => {
       <Article>
         <Title>Hello There.</Title>
         <Caption>
-          The name's <Emphasis>Hayo Friese</Emphasis>, web developer and student
-          extraordinaire*.
+          I am <Emphasis>Adamay Mann</Emphasis>, MERN developer.
         </Caption>
       </Article>
       <Article>
         <CoverSheet />
-        <CoverImg src={background} alt="Hayo Cover Photo" />
+        <CoverImg src={background} alt="Cover" />
       </Article>
     </Wrapper>
   );
