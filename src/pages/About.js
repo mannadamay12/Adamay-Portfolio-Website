@@ -58,15 +58,7 @@ const About = ({ history }) => {
           <Hero>
             <Heading>Who am i?</Heading>
             <Subtitle>
-              So I'm Hayo Friese, a <X>Dutch third culture kid</X>. I've lived
-              in Japan, Belgium, Czech Republic, Netherlands, England, and
-              briefly in Tanzania and Canada. I'm a former <X>dancer</X> and{" "}
-              <X>sk8rboy</X>, <X>gamer</X>, and <X>hobbyist</X> (as in I know
-              how to knit and stuff). In general, I'm just <X>always curious</X>
-              . I'd like to think I'm a solid <X>web developer</X>, but I know I
-              have much to learn, and I make it a mission to learn something new{" "}
-              <X>every day</X>. I hope I get the chance to <X>grow</X> with{" "}
-              <X>you</X>!
+              
             </Subtitle>
           </Hero>
           <ExperienceContainer>
@@ -189,7 +181,7 @@ const About = ({ history }) => {
         </Container>
       </Body>
       <WorkLink onClick={() => setAnimateWork(true)} animating={animateWork}>
-        <TextLink>Take a look at some of my work!</TextLink>
+        <TextLink>Take a look at some of my projects!</TextLink>
       </WorkLink>
     </Wrapper>
   );
