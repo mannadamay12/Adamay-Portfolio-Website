@@ -108,35 +108,27 @@ const About = ({ history }) => {
             <ExperienceTitle>EDUCATION</ExperienceTitle>
             <DetailBlock>
               <RoleTime>
-                <Role>IB Certificates</Role>
-                <Time>2008 - 2012</Time>
+                <Role>Senior Secondary</Role>
+                <Time>2018 - 2020</Time>
               </RoleTime>
-              <Client>American School of The Hague</Client>
-              <DetailPoint />
-            </DetailBlock>
-            <DetailBlock>
-              <RoleTime>
-                <Role>Bcs Games Design &amp; Production</Role>
-                <Time>2013 - 2015</Time>
-              </RoleTime>
-              <Client>Northumbria University</Client>
+              <Client>B.C.M. ARYA MODEL SR. SEC. SCHOOL</Client>
               <DetailPoint>
-                Accumulative Grade: 2:1. Quit to further pursue web development
+                95.2% in PCM
               </DetailPoint>
             </DetailBlock>
             <DetailBlock>
               <RoleTime>
-                <Role>Bcs in Web Development &amp; Design</Role>
-                <Time>2015 - 2017</Time>
+                <Role>B.E. in C.S.E.</Role>
+                <Time>2020 - 2024</Time>
               </RoleTime>
-              <Client>Northumbria University</Client>
+              <Client>Thapar Institue of Engineering and Technology</Client>
               <DetailPoint>
-                Graduated with a first class honors degree, with a first
+                Accumulative Grade: 9.2
               </DetailPoint>
             </DetailBlock>
           </ExperienceContainer>
           <ExperienceContainer>
-            <ExperienceTitle>EXTRA THINGS</ExperienceTitle>
+            <ExperienceTitle>Co-Curricular</ExperienceTitle>
             <DetailBlock>
               <RoleTime>
                 <Role>Volunteer Fundi* - Engikaret</Role>
