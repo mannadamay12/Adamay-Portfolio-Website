@@ -63,8 +63,8 @@ const Work = ({ history }) => {
   const PreviousIcon = require("../assets/icons/left-arrow.png");
   const NextIcon = require("../assets/icons/right-arrow.png");
 
-  const CaseOne = require("../assets/cases/case-1-shuttershare/shuttershare-hero.jpg");
-  const CaseTwo = require("../assets/cases/adscope-hero.jpg");
+  const CaseOne = require("../assets/cases/notefy-hero.png");
+  const CaseTwo = require("../assets/cases/financify-hero.png");
   const CaseThree = require("../assets/cases/tiptopmusic-hero.jpg");
   const CaseFour = require("../assets/cases/schoolforjustice-hero.jpg");
   const CaseFive = require("../assets/cases/damtotdamloop-hero.jpg");
@@ -90,11 +90,10 @@ const Work = ({ history }) => {
                   >
                     <ContentWrap>
                       <CaseTitle>
-                        ShutterShare
+                        Notefy
                         <Spanner />
                       </CaseTitle>
-                      <Subtitle>Back-End</Subtitle>
-                      <Subtitle>Northumbria University</Subtitle>
+                      <Subtitle>Frontend</Subtitle>
                     </ContentWrap>
                   </Overlay>
                 </LinkWrap>
@@ -106,10 +105,10 @@ const Work = ({ history }) => {
                   <Overlay>
                     <ContentWrap>
                       <CaseTitle>
-                        Adscope
+                        Financify
                         <Spanner />
                       </CaseTitle>
-                      <Subtitle>UX . Back-End</Subtitle>
+                      <Subtitle>Frontend . Back-End</Subtitle>
                       <Subtitle>Northumbria University</Subtitle>
                     </ContentWrap>
                   </Overlay>

@@ -58,52 +58,10 @@ const About = ({ history }) => {
           <Hero>
             <Heading>Who am i?</Heading>
             <Subtitle>
-              
+              I am a sophomore at Thapar University, pursuing a B.Tech in Computer Science Engineering.
+
             </Subtitle>
           </Hero>
-          <ExperienceContainer>
-            <ExperienceTitle>EXPERIENCE</ExperienceTitle>
-            <DetailBlock>
-              <RoleTime>
-                <Role>Junior UX Designer</Role>
-                <Time>Summer 2015</Time>
-              </RoleTime>
-              <Client>J. Walter Thompson Amsterdam</Client>
-              <DetailPoint>
-                Worked on designing an unlaunched app for a car company
-              </DetailPoint>
-            </DetailBlock>
-            <DetailBlock>
-              <RoleTime>
-                <Role>Concept Researcher &amp; Producer Intern</Role>
-                <Time>Summer 2016</Time>
-              </RoleTime>
-              <Client>J. Walter Thompson Amsterdam</Client>
-              <DetailPoint>
-                See case studies for information of my tenure
-              </DetailPoint>
-            </DetailBlock>
-            <DetailBlock>
-              <RoleTime>
-                <Role>PHP Intern &amp; Web Team Manager</Role>
-                <Time>2018</Time>
-              </RoleTime>
-              <Client>D-TT</Client>
-              <DetailPoint>
-                Inspired my desire to pursue web design fulltime
-              </DetailPoint>
-            </DetailBlock>
-            <DetailBlock>
-              <RoleTime>
-                <Role>Junior Frontend Developer &amp; Squad Master</Role>
-                <Time>2019</Time>
-              </RoleTime>
-              <Client>Oberon</Client>
-              <DetailPoint>
-                See case studies for information of my tenure
-              </DetailPoint>
-            </DetailBlock>
-          </ExperienceContainer>
           <ExperienceContainer>
             <ExperienceTitle>EDUCATION</ExperienceTitle>
             <DetailBlock>
@@ -123,7 +81,30 @@ const About = ({ history }) => {
               </RoleTime>
               <Client>Thapar Institue of Engineering and Technology</Client>
               <DetailPoint>
-                Accumulative Grade: 9.2
+                Accumulative GradePoint: 9.2
+              </DetailPoint>
+            </DetailBlock>
+          </ExperienceContainer>
+          <ExperienceContainer>
+            <ExperienceTitle>EXPERIENCE</ExperienceTitle>
+            <DetailBlock>
+              <RoleTime>
+                <Role>Content Head Intern</Role>
+                <Time>September 2021</Time>
+              </RoleTime>
+              <Client>NITI TANTRA</Client>
+              <DetailPoint>
+                Drafted Public Policy Papers in this youth run think tank.
+              </DetailPoint>
+            </DetailBlock>
+            <DetailBlock>
+              <RoleTime>
+                <Role>Content Writing &amp; Manager Intern</Role>
+                <Time>December 2020</Time>
+              </RoleTime>
+              <Client>Bizz Venture</Client>
+              <DetailPoint>
+                Curated content resources and material for social media page.
               </DetailPoint>
             </DetailBlock>
           </ExperienceContainer>
@@ -131,42 +112,31 @@ const About = ({ history }) => {
             <ExperienceTitle>Co-Curricular</ExperienceTitle>
             <DetailBlock>
               <RoleTime>
-                <Role>Volunteer Fundi* - Engikaret</Role>
-                <Time>2013</Time>
+                <Role>Core Member - Microsoft Learn Student Chapter</Role>
+                <Time>October 2020</Time>
               </RoleTime>
-              <Client>Projects Abroad - Tanzania</Client>
               <DetailPoint>
-                *Swahili for Builder
+                Orgainsed national level flagship hackathons- Makeathon 3077 and Make4thon.
+              </DetailPoint>
+              <DetailPoint>
+                Worked in technical and marketing teams, led a team of 60+, oversaw and coordinated various tasks involving event
+                websites and sponsor-ships.
               </DetailPoint>
             </DetailBlock>
             <DetailBlock>
               <RoleTime>
-                <Role>Level 1 Snowboard Instructor</Role>
-                <Time>2013</Time>
+                <Role>Core Member - Entrepreneurship Development Cell</Role>
+                <Time>October 2020</Time>
               </RoleTime>
-              <Client>Nonstop Snowboarding - Canada</Client>
               <DetailPoint>
-                Qualified to teach beginners in Canada. Might need to renew my license :3
+               Conducted India’s biggest Internship Fair with 100+ companies offering internships.              
               </DetailPoint>
-            </DetailBlock>
-            <DetailBlock>
-              <RoleTime>
-                <Role>Level 1 Dance Instructor</Role>
-                <Time>2014</Time>
-              </RoleTime>
-              <Client>Amanda Nicole School of Dance - England</Client>
               <DetailPoint>
-                Qualified to teach beginners
+                Worked in marketing, technical and content teams. Curated BizFanatics-EDC’s magazine. 
+                Contributed in building a website for E-Summit’21.
               </DetailPoint>
-            </DetailBlock>
-            <DetailBlock>
-              <RoleTime>
-                <Role>Society Marketer &amp; Promotions</Role>
-                <Time>2014-2015</Time>
-              </RoleTime>
-              <Client>Northumbria Dance Society - England</Client>
               <DetailPoint>
-              Awarded Highly Commended Society of the Year
+                Led team of 50+ members to work towards goals that improve and promote entrepreneurial culture at Thapar University
               </DetailPoint>
             </DetailBlock>
           </ExperienceContainer>
