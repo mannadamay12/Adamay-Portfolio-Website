@@ -82,11 +82,11 @@ const Work = ({ history }) => {
           <SliderContainer {...settings} ref={carousel} toCase={!!toCase}>
             <div>
               <SlideWrapper>
-                <LinkWrap coverImage={CaseOne} active={toCase === "/case"}>
+                <LinkWrap coverImage={CaseOne} active={toCase === "/"}>
                   <Overlay
                     active={!!toCase}
                     onMouseDown={e => setCoords(e.nativeEvent.x)}
-                    onMouseUp={e => handleCaseSwap(e.nativeEvent, "/case")}
+                    onMouseUp={e => handleCaseSwap(e.nativeEvent, "/")}
                   >
                     <ContentWrap>
                       <CaseTitle>
@@ -94,6 +94,7 @@ const Work = ({ history }) => {
                         <Spanner />
                       </CaseTitle>
                       <Subtitle>Frontend</Subtitle>
+                      <Subtitle>Servatom</Subtitle>
                     </ContentWrap>
                   </Overlay>
                 </LinkWrap>
@@ -109,7 +110,7 @@ const Work = ({ history }) => {
                         <Spanner />
                       </CaseTitle>
                       <Subtitle>Frontend . Back-End</Subtitle>
-                      <Subtitle>Northumbria University</Subtitle>
+                      <Subtitle>Zeta Hacks</Subtitle>
                     </ContentWrap>
                   </Overlay>
                 </LinkWrap>
