@@ -65,9 +65,9 @@ const Work = ({ history }) => {
 
   const CaseOne = require("../assets/cases/notefy-hero.png");
   const CaseTwo = require("../assets/cases/financify-hero.png");
-  const CaseThree = require("../assets/cases/tiptopmusic-hero.jpg");
-  const CaseFour = require("../assets/cases/schoolforjustice-hero.jpg");
-  const CaseFive = require("../assets/cases/damtotdamloop-hero.jpg");
+  // const CaseThree = require("../assets/cases/tiptopmusic-hero.jpg");
+  // const CaseFour = require("../assets/cases/schoolforjustice-hero.jpg");
+  // const CaseFive = require("../assets/cases/damtotdamloop-hero.jpg");
 
   const handleCaseSwap = (e, uri) =>
     e.x < coord + 15 && e.x > coord - 15 && setCase(uri);
@@ -115,7 +115,7 @@ const Work = ({ history }) => {
                 </LinkWrap>
               </SlideWrapper>
             </div>
-            <div>
+            {/* <div>
               <SlideWrapper>
                 <LinkWrap coverImage={CaseThree}>
                   <Overlay>
@@ -162,14 +162,14 @@ const Work = ({ history }) => {
                   </Overlay>
                 </LinkWrap>
               </SlideWrapper>
-            </div>
+            </div> */}
           </SliderContainer>
           <NumberList navigating={!!toCase}>
             <SlickSwitch onClick={() => carousel.current.slickPrev()}>
               <Button src={PreviousIcon} alt="Previous case" />
             </SlickSwitch>
             <Current>
-              <p>0{currentSlide} / 05</p>
+              <p>0{currentSlide} / 02</p>
             </Current>
             <SlickSwitch onClick={() => carousel.current.slickNext()}>
               <Button src={NextIcon} alt="Next case" />
