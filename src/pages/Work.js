@@ -65,9 +65,6 @@ const Work = ({ history }) => {
 
   const CaseOne = require("../assets/cases/notefy-hero.png");
   const CaseTwo = require("../assets/cases/financify-hero.png");
-  // const CaseThree = require("../assets/cases/tiptopmusic-hero.jpg");
-  // const CaseFour = require("../assets/cases/schoolforjustice-hero.jpg");
-  // const CaseFive = require("../assets/cases/damtotdamloop-hero.jpg");
 
   const handleCaseSwap = (e, uri) =>
     e.x < coord + 15 && e.x > coord - 15 && setCase(uri);
@@ -116,54 +113,6 @@ const Work = ({ history }) => {
                 </LinkWrap>
               </SlideWrapper>
             </div>
-            {/* <div>
-              <SlideWrapper>
-                <LinkWrap coverImage={CaseThree}>
-                  <Overlay>
-                    <ContentWrap>
-                      <CaseTitle>
-                        TipTop Music
-                        <Spanner />
-                      </CaseTitle>
-                      <Subtitle>Front-End . API</Subtitle>
-                      <Subtitle>Northumbria University</Subtitle>
-                    </ContentWrap>
-                  </Overlay>
-                </LinkWrap>
-              </SlideWrapper>
-            </div>
-            <div>
-              <SlideWrapper>
-                <LinkWrap coverImage={CaseFour}>
-                  <Overlay>
-                    <ContentWrap>
-                      <CaseTitle>
-                        School For Justice
-                        <Spanner />
-                      </CaseTitle>
-                      <Subtitle>Front-End</Subtitle>
-                      <Subtitle>J. Walter Thompson Amsterdam</Subtitle>
-                    </ContentWrap>
-                  </Overlay>
-                </LinkWrap>
-              </SlideWrapper>
-            </div>
-            <div>
-              <SlideWrapper>
-                <LinkWrap coverImage={CaseFive}>
-                  <Overlay>
-                    <ContentWrap>
-                      <CaseTitle>
-                        Ziggo Dam Tot Dam Loop
-                        <Spanner />
-                      </CaseTitle>
-                      <Subtitle>Conceptualization</Subtitle>
-                      <Subtitle>J. Walter Thompson Amsterdam</Subtitle>
-                    </ContentWrap>
-                  </Overlay>
-                </LinkWrap>
-              </SlideWrapper>
-            </div> */}
           </SliderContainer>
           <NumberList navigating={!!toCase}>
             <SlickSwitch onClick={() => carousel.current.slickPrev()}>

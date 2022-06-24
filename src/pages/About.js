@@ -81,12 +81,22 @@ const About = ({ history }) => {
               </RoleTime>
               <Client>Thapar Institue of Engineering and Technology</Client>
               <DetailPoint>
-                Accumulative GradePoint: 9.2
+                Accumulative GradePoint: 9.0
               </DetailPoint>
             </DetailBlock>
           </ExperienceContainer>
           <ExperienceContainer>
             <ExperienceTitle>EXPERIENCE</ExperienceTitle>
+            <DetailBlock>
+              <RoleTime>
+                <Role>Software Development Associate</Role>
+                <Time>June 2022</Time>
+              </RoleTime>
+              <Client>Ikarus 3D</Client>
+              <DetailPoint>
+                Developed a Web Platform
+              </DetailPoint>
+            </DetailBlock>
             <DetailBlock>
               <RoleTime>
                 <Role>Content Head Intern</Role>
@@ -112,7 +122,7 @@ const About = ({ history }) => {
             <ExperienceTitle>Co-Curricular</ExperienceTitle>
             <DetailBlock>
               <RoleTime>
-                <Role>Core Member - Microsoft Learn Student Chapter</Role>
+                <Role>General Secretary Member - Microsoft Learn Student Chapter</Role>
                 <Time>October 2020</Time>
               </RoleTime>
               <DetailPoint>
