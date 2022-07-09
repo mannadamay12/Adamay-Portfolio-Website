@@ -63,8 +63,9 @@ const Work = ({ history }) => {
   const PreviousIcon = require("../assets/icons/left-arrow.png");
   const NextIcon = require("../assets/icons/right-arrow.png");
 
-  const CaseOne = require("../assets/cases/notefy-hero.png");
-  const CaseTwo = require("../assets/cases/financify-hero.png");
+  const CaseOne = require("../assets/cases/notefy-hero.webp");
+  const CaseTwo = require("../assets/cases/financify-hero.webp");
+  const CaseThree = require("../assets/cases/terminal-hero.webp");
 
   const handleCaseSwap = (e, uri) =>
     e.x < coord + 15 && e.x > coord - 15 && setCase(uri);
@@ -113,13 +114,29 @@ const Work = ({ history }) => {
                 </LinkWrap>
               </SlideWrapper>
             </div>
+            <div>
+              <SlideWrapper>
+                <LinkWrap coverImage={CaseThree}>
+                  <Overlay>
+                    <ContentWrap>
+                      <CaseTitle>
+                        Terminal Chat
+                        <Spanner />
+                      </CaseTitle>
+                      <Subtitle>Node, Express</Subtitle>
+                      <Subtitle>Windows Terminal</Subtitle>
+                    </ContentWrap>
+                  </Overlay>
+                </LinkWrap>
+              </SlideWrapper>
+            </div>
           </SliderContainer>
           <NumberList navigating={!!toCase}>
             <SlickSwitch onClick={() => carousel.current.slickPrev()}>
               <Button src={PreviousIcon} alt="Previous case" />
             </SlickSwitch>
             <Current>
-              <p>0{currentSlide} / 02</p>
+              <p>0{currentSlide} / 03</p>
             </Current>
             <SlickSwitch onClick={() => carousel.current.slickNext()}>
               <Button src={NextIcon} alt="Next case" />

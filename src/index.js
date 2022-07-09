@@ -11,7 +11,6 @@ import Work from "./pages/Work";
 import "./styles/root.css";
 import "./styles/media.css";
 import NavigationMenu from "./pages/Nav";
-import Case from "./pages/Case";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -38,12 +37,6 @@ const App = () => {
           <Route path="/contact" component={Contact} />
           <Route path="/about" component={About} />
           <Route path="/work" component={Work} />
-          <Route
-            path="/case"
-            component={() => (
-              <Case setNavBackground={state => setNavBack(state)} />
-            )}
-          />
         </div>
       )}
     </Router>
@@ -53,4 +46,3 @@ const App = () => {
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
 
-//https://medium.com/@ItsMeDannyZ/how-to-build-a-progress-bar-with-react-8c5e79731d1f

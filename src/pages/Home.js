@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
-import "../assets/images/cover-img.jpg";
+import "../assets/images/cover-img.webp";
 import {
   Wrapper,
   Article,
@@ -31,7 +31,7 @@ const Home = ({ history }) => {
         setAnimateAbout(false);
       }, 400);
   }, [animateWork, animateAbout, history]);
-  const background = require("../assets/images/cover-img.jpg");
+  const background = require("../assets/images/cover-img.webp");
   return (
     <Wrapper>
       <WorkLink onClick={() => setAnimateWork(true)} animating={animateWork}>

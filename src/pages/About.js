@@ -4,13 +4,10 @@ import {
   Wrapper,
   Heading,
   Subtitle,
-  X,
-  Article,
   ExperienceContainer,
   ExperienceTitle,
   DetailBlock,
   DetailPoint,
-  Image,
   WorkLink,
   TextLink,
   HomeLink,
@@ -43,7 +40,7 @@ const About = ({ history }) => {
       }, 400);
   }, [animateWork, animateHome, history]);
 
-  const canada = require("../assets/images/tiet.JPG");
+  const canada = require("../assets/images/tiet.webp");
 
   return (
     <Wrapper>
@@ -89,7 +86,7 @@ const About = ({ history }) => {
             <ExperienceTitle>EXPERIENCE</ExperienceTitle>
             <DetailBlock>
               <RoleTime>
-                <Role>Software Development Associate</Role>
+                <Role>Software Developer Associate</Role>
                 <Time>June 2022</Time>
               </RoleTime>
               <Client>Ikarus 3D</Client>
