@@ -13,30 +13,16 @@ const Contact = ({ history }) => {
       }, 400);
   }, [animate, history]);
 
-  const sendMail = () => {
-    const mailto: string =
-      "mailto:meadamann2002@gmail.com?subject=Test subject&body=Body content";
-    window.location.href = mailto;
-  };
-
-  const callMe = () => {
-    const callto: int =
-      "tel:+918872331055?subject=Test subject&body=Body content";
-    window.location.href = callto;
-  };
-  const resume = () => {
-    window.location.href = "https://drive.google.com/file/d/1GGhfiLQfYocuZkv_cdP1U7tVJ0fCr2p5/view?usp=sharing";
-  };
-
   return (
     <Wrapper>
       <HomeLink onClick={() => setAnimate(true)} animating={animate}>
         <TextLink>Home</TextLink>
       </HomeLink>
       <Container>
-        <Button onClick={sendMail}>Send Mail</Button>
-        <Button onClick={callMe}>Call Me</Button>
-        <Button onClick={resume}>My Resume</Button>
+        <Button><a href ="mailto:meadamann2002@gmail.com" style={{color:"#654321"}}>Send Mail</a></Button>
+        <Button><a href ="tel:+918872331055" style={{color:"#654321"}}>Call Me</a></Button>
+        <Button><a href ="https://drive.google.com/file/d/1GGhfiLQfYocuZkv_cdP1U7tVJ0fCr2p5/view" target="_blank" rel="noreferrer" style={{color:"#654321"}}>My Resume</a></Button>
+        <Button><a href ="https://medium.com/@adamaymann" target="_blank" rel="noreferrer" style={{color:"#654321"}}>My Blogs</a></Button>
       </Container>
     </Wrapper>
   );

@@ -18,13 +18,6 @@ export const Container = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-export const Header = styled(MediumHead)`
-  display: block;
-  opacity: 0.3;
-  font-size: 3em;
-  text-align: center;
-`;
-
 export const Button = styled(MediumHead)`
   background: ${props => props.primary ? "#654321" : "white"};
   color: ${props => props.primary ? "white" : "#654321"};

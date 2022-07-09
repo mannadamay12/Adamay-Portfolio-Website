@@ -5,7 +5,6 @@ import {
   loadIn,
   toWork,
   toAbout,
-  loadHome,
   loadHeaders,
   loadImage,
   loadOverlay

@@ -80,7 +80,7 @@ const Work = ({ history }) => {
           <SliderContainer {...settings} ref={carousel} toCase={!!toCase}>
             <div>
               <SlideWrapper>
-                <LinkWrap coverImage={CaseOne} active={toCase === "/"}>
+                <LinkWrap coverImage={CaseOne} href="https://notefy.servatom.com/" target="_blank">
                   <Overlay
                     active={!!toCase}
                     onMouseDown={e => setCoords(e.nativeEvent.x)}
@@ -100,7 +100,7 @@ const Work = ({ history }) => {
             </div>
             <div>
               <SlideWrapper>
-                <LinkWrap coverImage={CaseTwo}>
+                <LinkWrap coverImage={CaseTwo} href="https://financify-zeta.netlify.app/" target="_blank">
                   <Overlay>
                     <ContentWrap>
                       <CaseTitle>
@@ -116,7 +116,7 @@ const Work = ({ history }) => {
             </div>
             <div>
               <SlideWrapper>
-                <LinkWrap coverImage={CaseThree}>
+                <LinkWrap coverImage={CaseThree} href="https://github.com/mannadamay12/TerminalChat" target="_blank">
                   <Overlay>
                     <ContentWrap>
                       <CaseTitle>
