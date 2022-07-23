@@ -1,7 +1,7 @@
-<h2 align="center"><a href="https://adamaymann.tech" target="_blank" style="color:Gold">Adamay's Portfolio Website<br/></a>
+<h2 align="center"><a href="https://adamaymann.tech" target="_blank">Adamay's Portfolio Website</a>
 </h2>
-<hr>
-## Built With
+
+### Built With
 
 My personal portfolio website featuring some of my github projects, my resume and technical skills.<br/>
 
