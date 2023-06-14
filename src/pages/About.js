@@ -55,7 +55,7 @@ const About = ({ history }) => {
           <Hero>
             <Heading>Who am i?</Heading>
             <Subtitle>
-              I am a sophomore at Thapar University, pursuing a B.Tech in Computer Science Engineering.
+              I am final year UnderGrad at Thapar University, pursuing a B.Tech in Computer Science Engineering.
 
             </Subtitle>
           </Hero>
@@ -78,7 +78,7 @@ const About = ({ history }) => {
               </RoleTime>
               <Client>Thapar Institue of Engineering and Technology</Client>
               <DetailPoint>
-                Accumulative GradePoint: 9.0
+                Accumulative GradePoint: 8.52
               </DetailPoint>
             </DetailBlock>
           </ExperienceContainer>
@@ -86,32 +86,32 @@ const About = ({ history }) => {
             <ExperienceTitle>EXPERIENCE</ExperienceTitle>
             <DetailBlock>
               <RoleTime>
-                <Role>Software Developer Associate</Role>
-                <Time>June 2022</Time>
+                <Role>Research Intern</Role>
+                <Time>May 2023</Time>
               </RoleTime>
-              <Client>Ikarus 3D</Client>
+              <Client>IIT Ropar</Client>
               <DetailPoint>
                 Developed a Web Platform
               </DetailPoint>
             </DetailBlock>
             <DetailBlock>
               <RoleTime>
-                <Role>Content Head Intern</Role>
-                <Time>September 2021</Time>
+                <Role>Research Intern</Role>
+                <Time>November 2022-May 2023</Time>
               </RoleTime>
-              <Client>NITI TANTRA</Client>
+              <Client>Samsung Prism</Client>
               <DetailPoint>
-                Drafted Public Policy Papers in this youth run think tank.
+                {/* Developed a Web Platform */}
               </DetailPoint>
             </DetailBlock>
             <DetailBlock>
               <RoleTime>
-                <Role>Content Writing &amp; Manager Intern</Role>
-                <Time>December 2020</Time>
+                <Role>Software Developer Associate</Role>
+                <Time>June 2022-November 2022</Time>
               </RoleTime>
-              <Client>Bizz Venture</Client>
+              <Client>Ikarus 3D</Client>
               <DetailPoint>
-                Curated content resources and material for social media page.
+                Developed a Web Platform
               </DetailPoint>
             </DetailBlock>
           </ExperienceContainer>
@@ -120,7 +120,7 @@ const About = ({ history }) => {
             <DetailBlock>
               <RoleTime>
                 <Role>General Secretary Member - Microsoft Learn Student Chapter</Role>
-                <Time>October 2020</Time>
+                <Time>October 2020-May 2023</Time>
               </RoleTime>
               <DetailPoint>
                 Orgainsed national level flagship hackathons- Makeathon 3077 and Make4thon.
@@ -128,22 +128,6 @@ const About = ({ history }) => {
               <DetailPoint>
                 Worked in technical and marketing teams, led a team of 60+, oversaw and coordinated various tasks involving event
                 websites and sponsor-ships.
-              </DetailPoint>
-            </DetailBlock>
-            <DetailBlock>
-              <RoleTime>
-                <Role>Core Member - Entrepreneurship Development Cell</Role>
-                <Time>October 2020</Time>
-              </RoleTime>
-              <DetailPoint>
-               Conducted India’s biggest Internship Fair with 100+ companies offering internships.              
-              </DetailPoint>
-              <DetailPoint>
-                Worked in marketing, technical and content teams. Curated BizFanatics-EDC’s magazine. 
-                Contributed in building a website for E-Summit’21.
-              </DetailPoint>
-              <DetailPoint>
-                Led team of 50+ members to work towards goals that improve and promote entrepreneurial culture at Thapar University
               </DetailPoint>
             </DetailBlock>
           </ExperienceContainer>
