@@ -21,11 +21,13 @@ export const Container = styled.div`
 export const Button = styled(MediumHead)`
   background: ${props => props.primary ? "#654321" : "white"};
   color: ${props => props.primary ? "white" : "#654321"};
-  font-size: 3em;
+  font-size: 2em;
   margin: 1em;
   padding: 0.25em 1em;
   border: 2px solid #654321;
   border-radius: 3px;
   cursor: pointer;
+  height: 4em;
+  width: 8em;
 `;
 

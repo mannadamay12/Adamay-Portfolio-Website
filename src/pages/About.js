@@ -22,6 +22,7 @@ import {
   Time,
   Client
 } from "../styles/About.styles";
+import { Button } from "../styles/Contact.styles";
 
 const About = ({ history }) => {
   const [animateWork, setAnimateWork] = useState(false);
@@ -54,23 +55,15 @@ const About = ({ history }) => {
         <Container>
           <Hero>
             <Heading>Who am i?</Heading>
-            <Subtitle>
-              I am final year UnderGrad at Thapar University, pursuing a B.Tech in Computer Science Engineering.
+            <Button><a href ="https://drive.google.com/file/d/1QgQiGZCagPUXMaa4jFnWoAC0B70cK9AO/view" target="_blank" rel="noopener noreferrer" style={{color:"#08814A", textDecoration:"none"}}>My Resume</a></Button>
 
+            <Subtitle>
+              I am final year Under-Graduate at Thapar University, pursuing a B.Tech in Computer Science and Engineering.
             </Subtitle>
           </Hero>
           <ExperienceContainer>
             <ExperienceTitle>EDUCATION</ExperienceTitle>
-            <DetailBlock>
-              <RoleTime>
-                <Role>Senior Secondary</Role>
-                <Time>2018 - 2020</Time>
-              </RoleTime>
-              <Client>B.C.M. ARYA MODEL SR. SEC. SCHOOL</Client>
-              <DetailPoint>
-                95.2% in PCM
-              </DetailPoint>
-            </DetailBlock>
+            
             <DetailBlock>
               <RoleTime>
                 <Role>B.E. in C.S.E.</Role>
@@ -79,6 +72,16 @@ const About = ({ history }) => {
               <Client>Thapar Institue of Engineering and Technology</Client>
               <DetailPoint>
                 Accumulative GradePoint: 8.52
+              </DetailPoint>
+            </DetailBlock>
+            <DetailBlock>
+              <RoleTime>
+                <Role>Senior Secondary</Role>
+                <Time>2018 - 2020</Time>
+              </RoleTime>
+              <Client>B.C.M. ARYA MODEL SR. SEC. SCHOOL</Client>
+              <DetailPoint>
+                95.2% in PCM
               </DetailPoint>
             </DetailBlock>
           </ExperienceContainer>
@@ -91,7 +94,7 @@ const About = ({ history }) => {
               </RoleTime>
               <Client>IIT Ropar</Client>
               <DetailPoint>
-                Developed a Web Platform
+              • Researched on facial emotion generation in a dyadic interaction setting.
               </DetailPoint>
             </DetailBlock>
             <DetailBlock>
@@ -101,7 +104,13 @@ const About = ({ history }) => {
               </RoleTime>
               <Client>Samsung Prism</Client>
               <DetailPoint>
-                {/* Developed a Web Platform */}
+              • Researched on Multi-modal Emotion Detection in Human Conversations with Industry Experts from Samsung.
+              </DetailPoint>
+              <DetailPoint>
+              • Learnt about different NLP techniques and Sentiment Analysis.
+              </DetailPoint>
+              <DetailPoint>
+              • Developed Self-supervised learning models and prepared corpora for testing and training upon existing datasets.
               </DetailPoint>
             </DetailBlock>
             <DetailBlock>
@@ -111,23 +120,54 @@ const About = ({ history }) => {
               </RoleTime>
               <Client>Ikarus 3D</Client>
               <DetailPoint>
-                Developed a Web Platform
+              • Designed UI wireframes and developed an eCommerce Platform.
+              </DetailPoint>
+              <DetailPoint>
+              • Researched and drafted review papers about 3D Photogrammetry.
+              </DetailPoint>
+              <DetailPoint>
+              • Built an app for 3D enthusiasts using React Native.
+              </DetailPoint>
+              <DetailPoint>
+              • Worked with Docker to develop a user interaction tool to track analytics data from Google’s Model Viewer API.
               </DetailPoint>
             </DetailBlock>
           </ExperienceContainer>
           <ExperienceContainer>
-            <ExperienceTitle>Co-Curricular</ExperienceTitle>
+            <ExperienceTitle>Leadership, Extracurriculars and Volunteering</ExperienceTitle>
             <DetailBlock>
               <RoleTime>
-                <Role>General Secretary Member - Microsoft Learn Student Chapter</Role>
+                <Role>General Secretary - Microsoft Learn Student Chapter, TIET</Role>
                 <Time>October 2020-May 2023</Time>
               </RoleTime>
               <DetailPoint>
-                Orgainsed national level flagship hackathons- Makeathon 3077 and Make4thon.
+              • Helped and guided more than 150 students to kickstart their journey in the world of technology.
               </DetailPoint>
               <DetailPoint>
-                Worked in technical and marketing teams, led a team of 60+, oversaw and coordinated various tasks involving event
-                websites and sponsor-ships.
+              • Organizing member of two iterations of North India’s grandest hackathon- MAKEATHON.
+              </DetailPoint>
+              <DetailPoint>
+              • Developed projects within the University to help students learn new technology frameworks through hands-on training.
+              </DetailPoint>
+            </DetailBlock>
+            <DetailBlock>
+              <RoleTime>
+                <Role>Core Member - Entrepreneurship Development Cell, TIET</Role>
+                <Time>October 2020-May 2022</Time>
+              </RoleTime>
+              <DetailPoint>
+              • Organizing member of E-summit - a week long series of events, one of North India’s largest, that had a lineup of various
+              renowned personalities sessions followed by a startup expo with over 50+ startups and their industry experts.
+              </DetailPoint>
+            </DetailBlock>
+            <DetailBlock>
+              <RoleTime>
+                <Role>GirlUp, Ludhiana</Role>
+                <Time>October 2020-May 2022</Time>
+              </RoleTime>
+              <DetailPoint>
+              • As part of this non-profit United Nations Foundation, I contributed in providing a platform and supporting young girls
+              and women along their journey from leaders to changemakers.
               </DetailPoint>
             </DetailBlock>
           </ExperienceContainer>

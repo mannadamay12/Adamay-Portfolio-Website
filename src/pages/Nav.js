@@ -10,11 +10,10 @@ import {
 } from "../styles/Navigation.styles";
 import { SocialItem } from "../styles/Navigation.styles";
 import {
-  Instagram,
-  Facebook,
   Twitter,
   Github,
-  LinkedIn
+  LinkedIn,
+  Mail
 } from "../components/Socials";
 import { withRouter } from "react-router";
 import NavButton from "../components/NavButton";
@@ -96,23 +95,24 @@ const NavigationMenu = ({ history, hasBackground, setBackground }) => {
           <LinkTag>Work</LinkTag>
           <Spanner opening={linking === "work"} />
         </Page>
-        <Page variant="contact" onClick={() => setLinkHandler("contact")}>
-          <LinkTag>Contact</LinkTag>
+        <Page variant="contact">
+          <LinkTag><a href="https://mannadamay.hashnode.dev/" target="_blank" rel="noopener noreferrer" style={{color:"#FFFFFF", textDecoration:"none"}}>Blog</a></LinkTag>
           <Spanner opening={linking === "contact"} />
         </Page>
+        {/* <Page variant="contact" onClick={() => setLinkHandler("contact")}>
+          <LinkTag>My Blog</LinkTag>
+          <Spanner opening={linking === "contact"} />
+        </Page> */}
       </Body>
       <SocialContainer open={isOn}>
         <SocialItem>
-          <Facebook />
+          <Mail />
         </SocialItem>
         <SocialItem>
           <Twitter />
         </SocialItem>
         <SocialItem>
           <LinkedIn />
-        </SocialItem>
-        <SocialItem>
-          <Instagram />
         </SocialItem>
         <SocialItem>
           <Github />

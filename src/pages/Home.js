@@ -43,7 +43,7 @@ const Home = ({ history }) => {
       <Article>
         <Title>Hello There.</Title>
         <Caption>
-          I am <Emphasis>Adamay Mann</Emphasis>, MERN developer.
+          I am <Emphasis>Adamay Mann</Emphasis>, MERN developer and an ML Enthusiast.
         </Caption>
       </Article>
       <Article>
