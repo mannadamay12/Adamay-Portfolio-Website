@@ -99,6 +99,10 @@ const NavigationMenu = ({ history, hasBackground, setBackground }) => {
           <LinkTag><a href="https://mannadamay.hashnode.dev/" target="_blank" rel="noopener noreferrer" style={{color:"#FFFFFF", textDecoration:"none"}}>Blog</a></LinkTag>
           <Spanner opening={linking === "contact"} />
         </Page>
+        <Page variant="resume">
+          <LinkTag><a href="https://drive.google.com/file/d/17gGdEPzDrdGtErRilzrfKQMQ9zfk-PTn/view?usp=sharing" target="_blank" rel="noopener noreferrer" style={{color:"#FFFFFF", textDecoration:"none"}}>Resume</a></LinkTag>
+          <Spanner opening={linking === "home"} />
+        </Page>
         {/* <Page variant="contact" onClick={() => setLinkHandler("contact")}>
           <LinkTag>My Blog</LinkTag>
           <Spanner opening={linking === "contact"} />

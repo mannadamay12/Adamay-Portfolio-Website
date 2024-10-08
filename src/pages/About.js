@@ -2,27 +2,27 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import {
   Wrapper,
-  Heading,
-  Subtitle,
-  ExperienceContainer,
-  ExperienceTitle,
-  DetailBlock,
-  DetailPoint,
+  // Heading,
+  // Subtitle,
+  // ExperienceContainer,
+  // ExperienceTitle,
+  // DetailBlock,
+  // DetailPoint,
   WorkLink,
   TextLink,
   HomeLink,
   HomeText,
-  Hero,
+  // Hero,
   Body,
-  ImageBackground,
-  Overlay,
+  // ImageBackground,
+  // Overlay,
   Container,
-  RoleTime,
-  Role,
-  Time,
-  Client
+  // RoleTime,
+  // Role,
+  // Time,
+  // Client
 } from "../styles/About.styles";
-import { Button } from "../styles/Contact.styles";
+// import { Button } from "../styles/Contact.styles";
 
 const About = ({ history }) => {
   const [animateWork, setAnimateWork] = useState(false);
@@ -41,7 +41,7 @@ const About = ({ history }) => {
       }, 400);
   }, [animateWork, animateHome, history]);
 
-  const canada = require("../assets/images/tiet.webp");
+  // const canada = require("../assets/images/tiet.webp");
 
   return (
     <Wrapper>
@@ -49,11 +49,28 @@ const About = ({ history }) => {
         <HomeText>Home</HomeText>
       </HomeLink>
       <Body>
-        <ImageBackground backgroundImage={canada}>
+        {/* <ImageBackground backgroundImage={canada}>
           <Overlay />
-        </ImageBackground>
+        </ImageBackground> */}
         <Container>
-          <Hero>
+        <div style={{ width: "100vw", height: "100vh", margin: 0, padding: 0 }}>
+          <iframe 
+            title="My Notion Page"
+            src="https://v2-embednotion.com/119cc02114598011932ce815d023525a" 
+            style={{
+              width: "100%", 
+              height: "100%", 
+              border: "2px solid #ccc", 
+              borderRadius: "10px", 
+              padding: "none",
+              overflow: "auto"  // Ensure the iframe is scrollable
+            }}
+            scrolling="yes"
+          ></iframe>
+        </div>
+
+
+          {/* <Hero>
             <Heading>Who am i?</Heading>
             <Button><a href ="https://drive.google.com/file/d/1QgQiGZCagPUXMaa4jFnWoAC0B70cK9AO/view" target="_blank" rel="noopener noreferrer" style={{color:"#08814A", textDecoration:"none"}}>My Resume</a></Button>
 
@@ -170,7 +187,7 @@ const About = ({ history }) => {
               and women along their journey from leaders to changemakers.
               </DetailPoint>
             </DetailBlock>
-          </ExperienceContainer>
+          </ExperienceContainer> */}
         </Container>
       </Body>
       <WorkLink onClick={() => setAnimateWork(true)} animating={animateWork}>

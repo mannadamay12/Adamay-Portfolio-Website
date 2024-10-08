@@ -1,9 +1,36 @@
 import React from "react";
 import styled from "styled-components";
+// export const Mail = () => {
+//   return (
+//     <Social href="mailto:meadamann2002@gmail.com">
+//       {/* <svg width="45" height="45" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 24V9H24H4V24V39H24" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M31 36L36 40L44 30" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 9L24 24L44 9" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg> */}
+//       {/* <svg width="45" height="45" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+//         <path d="M44 24V9H24H4V24V39H24" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+//         <path d="M31 36L36 40L44 30" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+//         <path d="M4 9L24 24L44 9" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+//         <path d="M4 9Q24 22 44 9" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+//         <path d="M4 39Q24 28 44 39" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+//       </svg> */}
+//       <Svg x="0px" y="0px" viewBox="0 0 512.002 512.002" space="preserve" xmlns="http://www.w3.org/2000/svg">
+//         <style>enable-background:new 0 0 512.002 512.002;</style>
+//         <path d="M44 24V9H24H4V24V39H24" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M31 36L36 40L44 30" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 9L24 24L44 9" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+//       </Svg>
+
+//     </Social>
+//   );
+// };
 export const Mail = () => {
   return (
-    <Social href="mailto:meadamann2002@gmail.com">
-      <svg width="45" height="45" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 24V9H24H4V24V39H24" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M31 36L36 40L44 30" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 9L24 24L44 9" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <Social href="mailto:your.email@example.com">
+      <Svg
+        x="0px"
+        y="0px"
+        viewBox="0 0 8 6" // Update viewBox based on the new SVG
+        xmlns="http://www.w3.org/2000/svg"
+        aria-label="Email"
+      >
+        <path d="m0 0h8v6h-8zm.75 .75v4.5h6.5v-4.5zM0 0l4 3 4-3v1l-4 3-4-3z" />
+      </Svg>
     </Social>
   );
 };

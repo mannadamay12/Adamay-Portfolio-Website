@@ -21,7 +21,7 @@ const Contact = ({ history }) => {
       <Container>
         <Button><a href ="mailto:meadamann2002@gmail.com" style={{color:"#654321"}}>Send Mail</a></Button>
         {/* <Button><a href ="tel:+918872331055" style={{color:"#654321"}}>Call Me</a></Button> */}
-        <Button><a href ="https://drive.google.com/file/d/1GGhfiLQfYocuZkv_cdP1U7tVJ0fCr2p5/view" target="_blank" rel="noopener noreferrer" style={{color:"#654321"}}>My Resume</a></Button>
+        <Button><a href ="https://drive.google.com/file/d/17gGdEPzDrdGtErRilzrfKQMQ9zfk-PTn/view?usp=sharing" target="_blank" rel="noopener noreferrer" style={{color:"#654321"}}>My Resume</a></Button>
         <Button><a href ="https://medium.com/@adamaymann" target="_blank" rel="noopener noreferrer" style={{color:"#654321"}}>My Blogs</a></Button>
       </Container>
     </Wrapper>
