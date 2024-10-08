@@ -41,9 +41,9 @@ const Home = ({ history }) => {
         <AboutText>About</AboutText>
       </AboutLink>
       <Article>
-        <Title>Hello There.</Title>
+        <Title>Hello There</Title>
         <Caption>
-          I am <Emphasis>Adamay Mann</Emphasis>, MERN developer and an ML Enthusiast.
+          I am <Emphasis>Adamay Mann</Emphasis>. I build seamless web experiences! MERN developer by day, AI enthusiast by night🧑🏻‍💻
         </Caption>
       </Article>
       <Article>
