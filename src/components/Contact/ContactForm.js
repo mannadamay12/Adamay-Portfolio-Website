@@ -1,13 +1,13 @@
+// src/components/Contact/ContactForm.js
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Send, Loader } from 'lucide-react';
 
-const Form = styled(motion.form)`
+const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-top: 2rem;
 `;
 
 const InputGroup = styled.div`
@@ -17,13 +17,13 @@ const InputGroup = styled.div`
 `;
 
 const Label = styled.label`
-  color: ${props => props.theme.colors.black};
   font-size: 0.9rem;
   font-weight: 500;
+  color: ${props => props.theme.colors.black};
 `;
 
 const Input = styled.input`
-  padding: 1rem;
+  padding: 0.8rem;
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   font-size: 1rem;
@@ -37,13 +37,13 @@ const Input = styled.input`
 `;
 
 const TextArea = styled.textarea`
-  padding: 1rem;
+  padding: 0.8rem;
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   font-size: 1rem;
   min-height: 150px;
   resize: vertical;
-  transition: all 0.2s ease;
+  font-family: inherit;
 
   &:focus {
     outline: none;
@@ -57,7 +57,7 @@ const SubmitButton = styled(motion.button)`
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 1rem 2rem;
+  padding: 1rem;
   background: ${props => props.theme.colors.lightBlue};
   color: white;
   border: none;
@@ -72,45 +72,36 @@ const SubmitButton = styled(motion.button)`
   }
 `;
 
-const SuccessMessage = styled(motion.div)`
+const FormTitle = styled.h2`
+  font-size: 2rem;
+  margin-bottom: 2rem;
   text-align: center;
-  color: ${props => props.theme.colors.green};
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background: rgba(9, 129, 74, 0.1);
 `;
 
-const ContactForm = () => {
+export default function ContactForm() {
   const [formState, setFormState] = useState({
     name: '',
     email: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulated form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    // Here you would add your form submission logic
+    await new Promise(resolve => setTimeout(resolve, 1500)); // Simulated delay
     
     setIsSubmitting(false);
-    setIsSuccess(true);
     setFormState({ name: '', email: '', message: '' });
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSuccess(false), 5000);
+    alert('Message sent successfully!'); // Replace with better notification
   };
 
   return (
-    <Form
-      onSubmit={handleSubmit}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <Form onSubmit={handleSubmit}>
+      <FormTitle>Send Message</FormTitle>
+      
       <InputGroup>
         <Label htmlFor="name">Name</Label>
         <Input
@@ -143,36 +134,24 @@ const ContactForm = () => {
         />
       </InputGroup>
 
-      {isSuccess ? (
-        <SuccessMessage
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          Thanks for your message! I'll get back to you soon.
-        </SuccessMessage>
-      ) : (
-        <SubmitButton
-          type="submit"
-          disabled={isSubmitting}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          {isSubmitting ? (
-            <>
-              <Loader size={20} className="animate-spin" />
-              <span>Sending...</span>
-            </>
-          ) : (
-            <>
-              <Send size={20} />
-              <span>Send Message</span>
-            </>
-          )}
-        </SubmitButton>
-      )}
+      <SubmitButton
+        type="submit"
+        disabled={isSubmitting}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        {isSubmitting ? (
+          <>
+            <Loader className="animate-spin" />
+            <span>Sending...</span>
+          </>
+        ) : (
+          <>
+            <Send />
+            <span>Send Message</span>
+          </>
+        )}
+      </SubmitButton>
     </Form>
   );
-};
-
-export default ContactForm;
+}
