@@ -29,6 +29,8 @@ export default class MyDocument extends Document {
   }
 
   render() {
+    const basePath = process.env.NODE_ENV === 'production' ? '/Adamay-Portfolio-Website' : '';
+    
     return (
       <Html lang="en">
         <Head>
@@ -39,6 +41,17 @@ export default class MyDocument extends Document {
           <meta name="description" content="Adamay Mann - MERN Developer & AI Enthusiast" />
         </Head>
         <body>
+          <script dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var redirect = sessionStorage.redirect;
+                delete sessionStorage.redirect;
+                if (redirect && redirect != location.href) {
+                  history.replaceState(null, null, redirect);
+                }
+              })();
+            `
+          }} />
           <Main />
           <NextScript />
         </body>
