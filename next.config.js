@@ -7,4 +7,9 @@ const nextConfig = {
     images: {
       domains: ['placeholder.com'],
     },
+    output: 'export',
+    basePath: process.env.NODE_ENV === 'production' ? '/Adamay-Portfolio-Website' : '',
+    unoptimized: true,
   }
+
+module.exports = nextConfig

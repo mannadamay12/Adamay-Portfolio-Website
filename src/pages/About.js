@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import TimelineSection from '../components/About/TimelineSection';
 import SkillsSection from '../components/About/SkillsSection';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 
 const AboutContainer = styled(motion.main)`
   min-height: 100vh;
@@ -91,6 +91,9 @@ export default function About() {
           </SocialIcon>
           <SocialIcon href="https://www.linkedin.com/in/adamaymann7/" target="_blank">
             <Linkedin size={32} />
+          </SocialIcon>
+          <SocialIcon href="https://x.com/adamay_mann">
+            <Twitter size={32} />
           </SocialIcon>
           <SocialIcon href="mailto:meadamann2002@gmail.com">
             <Mail size={32} />

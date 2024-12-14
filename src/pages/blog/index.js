@@ -113,7 +113,7 @@ export default function Blog({ posts, error }) {
             onClick={() => window.open(`https://mannadamay.hashnode.dev/${post.slug}`, '_blank')}
             whileHover={{ y: -5 }}
           >
-            {post.coverImage && (
+            {post.coverImage !== null && (
               <BlogImage src={post.coverImage} alt={post.title} />
             )}
             <BlogContent>
@@ -134,17 +134,21 @@ export default function Blog({ posts, error }) {
 export async function getStaticProps() {
     try {
       const query = `
-        query GetUserArticles {
-          user(username: "mannadamay") {
-            posts(page: 1, pageSize: 10) {
-              nodes {
-                title
-                brief
-                slug
-                coverImage {
-                  url
+        {
+          publication(host: "mannadamay.hashnode.dev") {
+            isTeam
+            title
+            posts(first: 10) {
+              edges {
+                node {
+                  title
+                  brief
+                  slug
+                  dateAdded: publishedAt
+                  coverImage {
+                    url
+                  }
                 }
-                publishedAt
               }
             }
           }
@@ -155,30 +159,29 @@ export async function getStaticProps() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.HASHNODE_TOKEN}`
+          'Accept': 'application/json',
         },
         body: JSON.stringify({ query }),
       });
 
       const { data, errors } = await response.json();
-
+      
       if (errors) {
-        console.error('GraphQL Errors:', errors);
         throw new Error(errors[0].message);
       }
 
-      console.log('Raw API response:', data);
-  
-      const posts = data?.user?.posts?.nodes?.map(post => ({
-        title: post.title,
-        brief: post.brief,
-        slug: post.slug,
-        dateAdded: post.publishedAt,
-        coverImage: post.coverImage?.url
-      })) || [];
-  
-      console.log('Transformed posts:', posts);
-  
+      if (!data?.publication) {
+        throw new Error('No publication found');
+      }
+
+      const posts = data.publication.posts.edges.map(({ node }) => ({
+        title: node.title,
+        brief: node.brief,
+        slug: node.slug,
+        dateAdded: node.dateAdded,
+        coverImage: node.coverImage?.url || null
+      }));
+
       return {
         props: {
           posts,
@@ -186,7 +189,7 @@ export async function getStaticProps() {
         revalidate: 3600,
       };
     } catch (error) {
-      console.error('Error fetching blog posts:', error);
+      console.error('Error in getStaticProps:', error);
       return {
         props: {
           error: error.message || 'Failed to fetch blog posts. Please try again later.',
