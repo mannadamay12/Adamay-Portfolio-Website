@@ -1,13 +1,29 @@
-// src/pages/blog/index.js
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { formatDistanceToNow } from 'date-fns';
+import { format } from 'date-fns';
+import { LoadingSpinner } from '../../components/common/LoadingSpinner';
 
 const BlogContainer = styled(motion.main)`
   min-height: 100vh;
   background: ${props => props.theme.colors.blue};
   padding: 4rem 2rem;
+`;
+
+const BlogHeader = styled.div`
+  text-align: center;
+  margin-bottom: 4rem;
+`;
+
+const BlogTitle = styled.h1`
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 1rem;
+`;
+
+const BlogSubtitle = styled.p`
+  color: ${props => props.theme.colors.lightBlue};
+  font-size: 1.2rem;
 `;
 
 const BlogGrid = styled.div`
@@ -23,6 +39,11 @@ const BlogCard = styled(motion.article)`
   border-radius: 1rem;
   overflow: hidden;
   cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 `;
 
 const BlogImage = styled.img`
@@ -36,71 +57,71 @@ const BlogContent = styled.div`
   color: white;
 `;
 
-const BlogTitle = styled.h2`
+const BlogCardTitle = styled.h2`
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  color: ${props => props.theme.colors.lightBlue};
 `;
 
 const BlogMeta = styled.div`
   display: flex;
   justify-content: space-between;
-  color: ${props => props.theme.colors.lightBlue};
-  font-size: 0.9rem;
+  align-items: center;
   margin-top: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
 `;
 
-// Hashnode API integration
-const fetchBlogPosts = async () => {
-  const query = `
-    query {
-      user(username: "AdamayMann") {
-        publication {
-          posts(page: 1) {
-            title
-            brief
-            slug
-            dateAdded
-            coverImage
-          }
-        }
-      }
-    }
-  `;
+const ErrorMessage = styled.div`
+  text-align: center;
+  color: ${props => props.theme.colors.red};
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  margin: 2rem auto;
+  max-width: 600px;
+`;
 
-  const response = await fetch('https://api.hashnode.com', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ query }),
-  });
+export default function Blog({ posts, error }) {
+  if (error) {
+    return (
+      <BlogContainer>
+        <ErrorMessage>
+          <h2>Oops! Something went wrong</h2>
+          <p>{error}</p>
+        </ErrorMessage>
+      </BlogContainer>
+    );
+  }
+  
 
-  const { data } = await response.json();
-  return data.user.publication.posts;
-};
-
-export default function Blog({ posts }) {
   return (
     <BlogContainer
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
+      <BlogHeader>
+        <BlogTitle>My Blog</BlogTitle>
+        <BlogSubtitle>Thoughts on development, AI, and technology</BlogSubtitle>
+      </BlogHeader>
+
       <BlogGrid>
-        {posts.map((post) => (
+        {posts?.map((post) => (
           <BlogCard
             key={post.slug}
+            onClick={() => window.open(`https://mannadamay.hashnode.dev/${post.slug}`, '_blank')}
             whileHover={{ y: -5 }}
-            onClick={() => window.open(`https://adamaymann.hashnode.dev/${post.slug}`, '_blank')}
           >
-            <BlogImage src={post.coverImage} alt={post.title} />
+            {post.coverImage && (
+              <BlogImage src={post.coverImage} alt={post.title} />
+            )}
             <BlogContent>
-              <BlogTitle>{post.title}</BlogTitle>
+              <BlogCardTitle>{post.title}</BlogCardTitle>
               <p>{post.brief.substring(0, 120)}...</p>
               <BlogMeta>
-                <span>
-                  {formatDistanceToNow(new Date(post.dateAdded), { addSuffix: true })}
-                </span>
+                <span>{format(new Date(post.dateAdded), 'MMM dd, yyyy')}</span>
+                <span>Read more →</span>
               </BlogMeta>
             </BlogContent>
           </BlogCard>
@@ -111,11 +132,66 @@ export default function Blog({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = await fetchBlogPosts();
-  return {
-    props: {
-      posts,
-    },
-    revalidate: 3600, // Revalidate every hour
-  };
+    try {
+      const query = `
+        query GetUserArticles {
+          user(username: "mannadamay") {
+            posts(page: 1, pageSize: 10) {
+              nodes {
+                title
+                brief
+                slug
+                coverImage {
+                  url
+                }
+                publishedAt
+              }
+            }
+          }
+        }
+      `;
+  
+      const response = await fetch('https://gql.hashnode.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.HASHNODE_TOKEN}`
+        },
+        body: JSON.stringify({ query }),
+      });
+
+      const { data, errors } = await response.json();
+
+      if (errors) {
+        console.error('GraphQL Errors:', errors);
+        throw new Error(errors[0].message);
+      }
+
+      console.log('Raw API response:', data);
+  
+      const posts = data?.user?.posts?.nodes?.map(post => ({
+        title: post.title,
+        brief: post.brief,
+        slug: post.slug,
+        dateAdded: post.publishedAt,
+        coverImage: post.coverImage?.url
+      })) || [];
+  
+      console.log('Transformed posts:', posts);
+  
+      return {
+        props: {
+          posts,
+        },
+        revalidate: 3600,
+      };
+    } catch (error) {
+      console.error('Error fetching blog posts:', error);
+      return {
+        props: {
+          error: error.message || 'Failed to fetch blog posts. Please try again later.',
+          posts: [],
+        },
+      };
+    }
 }

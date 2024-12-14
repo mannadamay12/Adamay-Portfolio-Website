@@ -44,16 +44,9 @@ export default function Layout({ children }) {
         isOpen={isNavigating} 
         setIsOpen={setIsNavigating} 
       />
-      <AnimatePresence mode="wait">
-        <Main
-          variants={pageVariants}
-          initial="initial"
-          animate="enter"
-          exit="exit"
-        >
-          {children}
-        </Main>
-      </AnimatePresence>
+      <Main>
+        {children}
+      </Main>
     </LayoutWrapper>
   );
 }

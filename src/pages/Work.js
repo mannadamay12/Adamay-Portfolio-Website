@@ -1,140 +1,105 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import ProjectCard from '../components/Work/ProjectCard';
+import { Filter, Search } from 'lucide-react';
+import { projects } from '../utils/projects';
 
 const WorkContainer = styled(motion.main)`
   min-height: 100vh;
   background: ${props => props.theme.colors.red};
-  padding: 2rem;
-  position: relative;
+  padding: 4rem 2rem;
 `;
 
-const ProjectSlider = styled(motion.div)`
-  height: 80vh;
-  width: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const WorkHeader = styled.div`
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  text-align: center;
 `;
 
-const Project = styled(motion.div)`
-  position: absolute;
-  width: 80%;
-  height: 80%;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
+const Title = styled.h1`
   color: white;
-`;
-
-const ProjectImage = styled(motion.img)`
-  width: 100%;
-  height: 60%;
-  object-fit: cover;
-  border-radius: 0.5rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1rem;
 `;
 
-const ProjectTitle = styled.h2`
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+const Subtitle = styled.p`
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  max-width: 600px;
+  margin: 0 auto 2rem;
 `;
 
-const ProjectDescription = styled.p`
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-`;
-
-const NavigationButton = styled.button`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
+const FilterSection = styled.div`
   display: flex;
-  align-items: center;
   justify-content: center;
-  color: white;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+`;
+
+const FilterButton = styled(motion.button)`
+  padding: 0.5rem 1.5rem;
+  background: ${props => props.active ? 'white' : 'rgba(255, 255, 255, 0.1)'};
+  color: ${props => props.active ? props.theme.colors.red : 'white'};
+  border-radius: 2rem;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-
-  &.prev {
-    left: 2rem;
-  }
-
-  &.next {
-    right: 2rem;
-  }
+  border: none;
 `;
 
-const ProjectCounter = styled.div`
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+const ProjectGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+`;
+
+const SearchBar = styled.div`
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+`;
+
+const SearchInput = styled.input`
+  background: none;
+  border: none;
   color: white;
-  font-size: 1.2rem;
-`;
-
-const projects = [
-  {
-    id: 1,
-    title: 'Notefy',
-    description: 'Frontend • A seamless note-taking experience',
-    image: '/images/notefy-hero.webp',
-    link: 'https://notefy.servatom.com'
-  },
-  {
-    id: 2,
-    title: 'Financify',
-    description: 'Full Stack • Financial management made simple',
-    image: '/images/financify-hero.webp',
-    link: 'https://financify-zeta.netlify.app'
-  },
-  {
-    id: 3,
-    title: 'Terminal Chat',
-    description: 'Node.js • CLI-based chat application',
-    image: '/images/terminal-hero.webp',
-    link: 'https://github.com/mannadamay12/TerminalChat'
+  width: 100%;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.5);
   }
-];
-
-const slideVariants = {
-  enter: (direction) => ({
-    x: direction > 0 ? 1000 : -1000,
-    opacity: 0
-  }),
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1
-  },
-  exit: (direction) => ({
-    zIndex: 0,
-    x: direction < 0 ? 1000 : -1000,
-    opacity: 0
-  })
-};
+  
+  &:focus {
+    outline: none;
+  }
+`;
 
 export default function Work() {
-  const [[page, direction], setPage] = useState([0, 0]);
+  const [activeFilter, setActiveFilter] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const paginate = (newDirection) => {
-    setPage([page + newDirection, newDirection]);
-  };
+  const filters = [
+    { id: 'all', label: 'All Projects' },
+    { id: 'frontend', label: 'Frontend' },
+    { id: 'fullstack', label: 'Full Stack' },
+    { id: 'ai', label: 'AI/ML' }
+  ];
 
-  const currentProject = projects[page % projects.length];
+  const filteredProjects = projects.filter(project => {
+    const matchesFilter = activeFilter === 'all' || project.category === activeFilter;
+    const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         project.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
 
   return (
     <WorkContainer
@@ -143,70 +108,45 @@ export default function Work() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <ProjectSlider>
-        <AnimatePresence initial={false} custom={direction}>
-          <Project
-            key={page}
-            custom={direction}
-            variants={slideVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-              x: { type: "spring", stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 }
-            }}
-          >
-            <ProjectImage
-              src={currentProject.image}
-              alt={currentProject.title}
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
-            />
-            <ProjectTitle>{currentProject.title}</ProjectTitle>
-            <ProjectDescription>{currentProject.description}</ProjectDescription>
-            <motion.a 
-              href={currentProject.link}
-              target="_blank"
-              rel="noopener noreferrer"
+      <WorkHeader>
+        <Title>My Projects</Title>
+        <Subtitle>
+          A collection of projects that showcase my skills in web development,
+          machine learning, and creative problem-solving.
+        </Subtitle>
+        
+        <SearchBar>
+          <Search size={20} color="white" />
+          <SearchInput
+            type="text"
+            placeholder="Search projects..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </SearchBar>
+
+        <FilterSection>
+          {filters.map(filter => (
+            <FilterButton
+              key={filter.id}
+              active={activeFilter === filter.id}
+              onClick={() => setActiveFilter(filter.id)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              style={{
-                padding: '1rem 2rem',
-                background: '#3f88c5',
-                borderRadius: '0.5rem',
-                color: 'white',
-                textAlign: 'center',
-                textDecoration: 'none'
-              }}
             >
-              View Project
-            </motion.a>
-          </Project>
+              {filter.label}
+            </FilterButton>
+          ))}
+        </FilterSection>
+      </WorkHeader>
+
+      <ProjectGrid>
+        <AnimatePresence mode="wait">
+          {filteredProjects.map(project => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
         </AnimatePresence>
-
-        <NavigationButton 
-          className="prev" 
-          onClick={() => paginate(-1)}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <ChevronLeft />
-        </NavigationButton>
-
-        <NavigationButton 
-          className="next" 
-          onClick={() => paginate(1)}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <ChevronRight />
-        </NavigationButton>
-      </ProjectSlider>
-
-      <ProjectCounter>
-        {page % projects.length + 1} / {projects.length}
-      </ProjectCounter>
+      </ProjectGrid>
     </WorkContainer>
   );
 }
