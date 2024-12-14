@@ -1,200 +1,105 @@
-import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
-import {
-  Wrapper,
-  // Heading,
-  // Subtitle,
-  // ExperienceContainer,
-  // ExperienceTitle,
-  // DetailBlock,
-  // DetailPoint,
-  WorkLink,
-  TextLink,
-  HomeLink,
-  HomeText,
-  // Hero,
-  Body,
-  // ImageBackground,
-  // Overlay,
-  Container,
-  // RoleTime,
-  // Role,
-  // Time,
-  // Client
-} from "../styles/About.styles";
-// import { Button } from "../styles/Contact.styles";
+import React from 'react';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import TimelineSection from '../components/About/TimelineSection';
+import SkillsSection from '../components/About/SkillsSection';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
-const About = ({ history }) => {
-  const [animateWork, setAnimateWork] = useState(false);
-  const [animateHome, setAnimateHome] = useState(false);
+const AboutContainer = styled(motion.main)`
+  min-height: 100vh;
+  background: ${props => props.theme.colors.green};
+  padding: 2rem;
 
-  useEffect(() => {
-    animateWork &&
-      setTimeout(() => {
-        setAnimateWork(false);
-        history.push("/work");
-      }, 400);
-    animateHome &&
-      setTimeout(() => {
-        setAnimateHome(false);
-        history.push("/");
-      }, 400);
-  }, [animateWork, animateHome, history]);
+  @media (max-width: ${props => props.theme.mediaQueries.width.m}) {
+    padding: 1rem;
+  }
+`;
 
-  // const canada = require("../assets/images/tiet.webp");
+const Hero = styled.section`
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10%;
 
+  @media (max-width: ${props => props.theme.mediaQueries.width.m}) {
+    padding: 0 5%;
+  }
+`;
+
+const Title = styled(motion.h1)`
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: ${props => props.theme.colors.white};
+  margin-bottom: 2rem;
+`;
+
+const Description = styled(motion.p)`
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: ${props => props.theme.colors.white};
+  max-width: 800px;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+`;
+
+const SocialLinks = styled(motion.div)`
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+`;
+
+const SocialIcon = styled(motion.a)`
+  color: ${props => props.theme.colors.white};
+  cursor: pointer;
+  
+  &:hover {
+    color: ${props => props.theme.colors.lightGreen};
+  }
+`;
+
+export default function About() {
   return (
-    <Wrapper>
-      <HomeLink onClick={() => setAnimateHome(true)} animating={animateHome}>
-        <HomeText>Home</HomeText>
-      </HomeLink>
-      <Body>
-        {/* <ImageBackground backgroundImage={canada}>
-          <Overlay />
-        </ImageBackground> */}
-        <Container>
-        <div style={{ width: "100vw", height: "100vh", margin: 0, padding: 0 }}>
-          <iframe 
-            title="My Notion Page"
-            src="https://v2-embednotion.com/119cc02114598011932ce815d023525a" 
-            style={{
-              width: "100%", 
-              height: "100%", 
-              border: "2px solid #ccc", 
-              borderRadius: "10px", 
-              padding: "none",
-              overflow: "auto"  // Ensure the iframe is scrollable
-            }}
-            scrolling="yes"
-          ></iframe>
-        </div>
+    <AboutContainer
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Hero>
+        <Title
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          About Me
+        </Title>
+        <Description
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          I am a MERN stack developer currently pursuing my Master's at NYU. 
+          With a strong foundation in web development and a growing expertise in AI, 
+          I strive to create seamless digital experiences that make a difference.
+        </Description>
+        <SocialLinks
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <SocialIcon href="https://github.com/mannadamay12" target="_blank">
+            <Github size={32} />
+          </SocialIcon>
+          <SocialIcon href="https://www.linkedin.com/in/adamaymann7/" target="_blank">
+            <Linkedin size={32} />
+          </SocialIcon>
+          <SocialIcon href="mailto:meadamann2002@gmail.com">
+            <Mail size={32} />
+          </SocialIcon>
+        </SocialLinks>
+      </Hero>
 
-
-          {/* <Hero>
-            <Heading>Who am i?</Heading>
-            <Button><a href ="https://drive.google.com/file/d/1QgQiGZCagPUXMaa4jFnWoAC0B70cK9AO/view" target="_blank" rel="noopener noreferrer" style={{color:"#08814A", textDecoration:"none"}}>My Resume</a></Button>
-
-            <Subtitle>
-              I am final year Under-Graduate at Thapar University, pursuing a B.Tech in Computer Science and Engineering.
-            </Subtitle>
-          </Hero>
-          <ExperienceContainer>
-            <ExperienceTitle>EDUCATION</ExperienceTitle>
-            
-            <DetailBlock>
-              <RoleTime>
-                <Role>B.E. in C.S.E.</Role>
-                <Time>2020 - 2024</Time>
-              </RoleTime>
-              <Client>Thapar Institue of Engineering and Technology</Client>
-              <DetailPoint>
-                Accumulative GradePoint: 8.52
-              </DetailPoint>
-            </DetailBlock>
-            <DetailBlock>
-              <RoleTime>
-                <Role>Senior Secondary</Role>
-                <Time>2018 - 2020</Time>
-              </RoleTime>
-              <Client>B.C.M. ARYA MODEL SR. SEC. SCHOOL</Client>
-              <DetailPoint>
-                95.2% in PCM
-              </DetailPoint>
-            </DetailBlock>
-          </ExperienceContainer>
-          <ExperienceContainer>
-            <ExperienceTitle>EXPERIENCE</ExperienceTitle>
-            <DetailBlock>
-              <RoleTime>
-                <Role>Research Intern</Role>
-                <Time>May 2023</Time>
-              </RoleTime>
-              <Client>IIT Ropar</Client>
-              <DetailPoint>
-              • Researched on facial emotion generation in a dyadic interaction setting.
-              </DetailPoint>
-            </DetailBlock>
-            <DetailBlock>
-              <RoleTime>
-                <Role>Research Intern</Role>
-                <Time>November 2022-May 2023</Time>
-              </RoleTime>
-              <Client>Samsung Prism</Client>
-              <DetailPoint>
-              • Researched on Multi-modal Emotion Detection in Human Conversations with Industry Experts from Samsung.
-              </DetailPoint>
-              <DetailPoint>
-              • Learnt about different NLP techniques and Sentiment Analysis.
-              </DetailPoint>
-              <DetailPoint>
-              • Developed Self-supervised learning models and prepared corpora for testing and training upon existing datasets.
-              </DetailPoint>
-            </DetailBlock>
-            <DetailBlock>
-              <RoleTime>
-                <Role>Software Developer Associate</Role>
-                <Time>June 2022-November 2022</Time>
-              </RoleTime>
-              <Client>Ikarus 3D</Client>
-              <DetailPoint>
-              • Designed UI wireframes and developed an eCommerce Platform.
-              </DetailPoint>
-              <DetailPoint>
-              • Researched and drafted review papers about 3D Photogrammetry.
-              </DetailPoint>
-              <DetailPoint>
-              • Built an app for 3D enthusiasts using React Native.
-              </DetailPoint>
-              <DetailPoint>
-              • Worked with Docker to develop a user interaction tool to track analytics data from Google’s Model Viewer API.
-              </DetailPoint>
-            </DetailBlock>
-          </ExperienceContainer>
-          <ExperienceContainer>
-            <ExperienceTitle>Leadership, Extracurriculars and Volunteering</ExperienceTitle>
-            <DetailBlock>
-              <RoleTime>
-                <Role>General Secretary - Microsoft Learn Student Chapter, TIET</Role>
-                <Time>October 2020-May 2023</Time>
-              </RoleTime>
-              <DetailPoint>
-              • Helped and guided more than 150 students to kickstart their journey in the world of technology.
-              </DetailPoint>
-              <DetailPoint>
-              • Organizing member of two iterations of North India’s grandest hackathon- MAKEATHON.
-              </DetailPoint>
-              <DetailPoint>
-              • Developed projects within the University to help students learn new technology frameworks through hands-on training.
-              </DetailPoint>
-            </DetailBlock>
-            <DetailBlock>
-              <RoleTime>
-                <Role>Core Member - Entrepreneurship Development Cell, TIET</Role>
-                <Time>October 2020-May 2022</Time>
-              </RoleTime>
-              <DetailPoint>
-              • Organizing member of E-summit - a week long series of events, one of North India’s largest, that had a lineup of various
-              renowned personalities sessions followed by a startup expo with over 50+ startups and their industry experts.
-              </DetailPoint>
-            </DetailBlock>
-            <DetailBlock>
-              <RoleTime>
-                <Role>GirlUp, Ludhiana</Role>
-                <Time>October 2020-May 2022</Time>
-              </RoleTime>
-              <DetailPoint>
-              • As part of this non-profit United Nations Foundation, I contributed in providing a platform and supporting young girls
-              and women along their journey from leaders to changemakers.
-              </DetailPoint>
-            </DetailBlock>
-          </ExperienceContainer> */}
-        </Container>
-      </Body>
-      <WorkLink onClick={() => setAnimateWork(true)} animating={animateWork}>
-        <TextLink>Take a look at some of my projects!</TextLink>
-      </WorkLink>
-    </Wrapper>
+      <TimelineSection />
+      <SkillsSection />
+    </AboutContainer>
   );
-};
-
-export default withRouter(About);
+}
