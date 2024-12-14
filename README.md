@@ -1,23 +1,81 @@
-<h2 align="center"><a href="https://adamaymann.servatom.com" target="_blank">Adamay's Portfolio Website</a>
-</h2>
+# Portfolio Website
 
-### Built With
+A modern, responsive portfolio website built with Next.js and styled-components. Features a clean design, smooth animations, and integration with Hashnode for blog posts.
 
-My personal portfolio website featuring some of my github projects, my resume and technical skills.<br/>
+## Features
 
-This project was built using these technologies.
+- 🎨 Modern UI with Framer Motion animations
+- 📱 Fully responsive design
+- 📝 Blog integration with Hashnode
+- 🌙 Custom components and styling
+- ⚡ Server-side rendering with Next.js
 
-- React.js
+## Tech Stack
+
+- Next.js 14
 - Styled Components
-- CSS3
-- VS Code
-- Vercel
-- Typescript
+- Framer Motion
+- TypeScript
+- Hashnode API
 
-<hr>
+## Getting Started
 
-### Show your support
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/portfolio-website.git
+cd portfolio-website
+```
 
-⭐ the repository if you liked it!
+2. Install dependencies:
+```bash
+npm install
+```
 
-<a href="https://www.buymeacoffee.com/AdamayMann" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" height= "60px" width= "217px" ></a>
+3. Create a `.env.local` file in the root directory:
+```bash
+HASHNODE_TOKEN=your_hashnode_token
+```
+
+4. Run the development server:
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the website.
+
+## Project Structure
+
+```
+src/
+  ├── components/      # Reusable components
+  ├── pages/          # Next.js pages
+  ├── styles/         # Global styles and theme
+  ├── hooks/          # Custom React hooks
+  └── utils/          # Utility functions
+```
+
+## Deployment
+
+The site is deployed on Vercel. Each pull request creates a preview deployment.
+
+```bash
+npm run build
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+Adamay Mann - [meadamann2002@gmail.com](mailto:meadamann2002@gmail.com)
+
+Project Link: [https://adamaymann.servtom.com](https://adamaymann.servatom.com)
