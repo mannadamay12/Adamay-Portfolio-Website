@@ -9,7 +9,6 @@ const nextConfig = {
     },
     output: 'export',
     basePath: process.env.NODE_ENV === 'production' ? '/Adamay-Portfolio-Website' : '',
-    unoptimized: true,
-  }
+}
 
 module.exports = nextConfig

@@ -186,7 +186,6 @@ export async function getStaticProps() {
         props: {
           posts,
         },
-        revalidate: 3600,
       };
     } catch (error) {
       console.error('Error in getStaticProps:', error);
