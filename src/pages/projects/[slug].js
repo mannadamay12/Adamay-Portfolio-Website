@@ -88,7 +88,15 @@ const ProjectLink = styled(motion.a)`
   }
 `;
 
-export default function ProjectDetail() {
+export async function getStaticPaths() {
+  // ... your paths logic
+}
+
+export async function getStaticProps({ params }) {
+  // ... your props logic
+}
+
+export default function ProjectPage() {
   const router = useRouter();
   const { slug } = router.query;
   const project = projects.find(p => p.id === slug);
