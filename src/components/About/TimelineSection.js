@@ -79,7 +79,7 @@ const TimelineDescription = styled.p`
 const timelineData = [
   {
     id: 1,
-    date: "2023 - Present",
+    date: "2024 - Present",
     role: "Master's Student",
     company: "New York University",
     description: "Pursuing MS in Computer Science with focus on AI and Machine Learning."
@@ -93,17 +93,31 @@ const timelineData = [
   },
   {
     id: 3,
-    date: "2023",
+    date: "02/2024 - 07/2024",
+    role: "Student Software Engineer Intern",
+    company: "Verizon",
+    description: "Worked with consumer facing team to develop and deploy testing frameworks and improve API performance."
+  },
+  {
+    id: 4,
+    date: "05/2023 - 07/2023",
     role: "Research Intern",
     company: "IIT Ropar",
     description: "Researched on facial emotion generation in dyadic interaction settings."
   },
   {
-    id: 4,
-    date: "2022 - 2023",
+    id: 5,
+    date: "12/2022 - 05/2023",
     role: "Research Intern",
     company: "Samsung Prism",
     description: "Worked on Multi-modal Emotion Detection in Human Conversations."
+  },
+  {
+    id: 6,
+    date: "06/2022 - 11/2022",
+    role: "Software Developer Associate",
+    company: "Ikarus 3D",
+    description: "Designed and developed UI/UX for a new ecommerce platform for 3D enthusiasts."
   }
 ];
 
