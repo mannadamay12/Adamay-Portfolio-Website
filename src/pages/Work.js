@@ -1,151 +1,152 @@
-import React, { useRef, useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
-import {
-  Wrapper,
-  NumberList,
-  Current,
-  SliderContainer,
-  SlideWrapper,
-  LinkWrap,
-  Overlay,
-  ContentWrap,
-  CaseTitle,
-  Button,
-  SlickSwitch,
-  Section,
-  Spanner,
-  Subtitle,
-  HomeLink,
-  TextLink
-} from "../styles/Work.styles";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { motion, AnimatePresence } from 'framer-motion';
+import ProjectCard from '../components/Work/ProjectCard';
+import { Filter, Search } from 'lucide-react';
+import { projects } from '../utils/projects';
 
-const Work = ({ history }) => {
-  const [carouselSet, setCarousel] = useState(false);
-  const [currentSlide, setSlide] = useState(1);
-  const [animateHome, setAnimeHome] = useState(false);
-  const [toCase, setCase] = useState("");
-  const [coord, setCoords] = useState();
-  const carousel = useRef(null);
+const WorkContainer = styled(motion.main)`
+  min-height: 100vh;
+  background: ${props => props.theme.colors.red};
+  padding: 4rem 2rem;
+`;
 
-  useEffect(() => {
-    animateHome &&
-      setTimeout(() => {
-        history.push("/");
-      }, 400);
-  }, [animateHome, history]);
+const WorkHeader = styled.div`
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  text-align: center;
+`;
 
-  useEffect(() => {
-    toCase &&
-      setTimeout(() => {
-        history.push(toCase);
-      }, 1000);
-  }, [toCase, history]);
+const Title = styled.h1`
+  color: white;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+`;
 
-  if (!carouselSet) {
-    setCarousel(true);
+const Subtitle = styled.p`
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+`;
+
+const FilterSection = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+`;
+
+const FilterButton = styled(motion.button)`
+  padding: 0.5rem 1.5rem;
+  background: ${props => props.active ? 'white' : 'rgba(255, 255, 255, 0.1)'};
+  color: ${props => props.active ? props.theme.colors.red : 'white'};
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+`;
+
+const ProjectGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+`;
+
+const SearchBar = styled.div`
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+`;
+
+const SearchInput = styled.input`
+  background: none;
+  border: none;
+  color: white;
+  width: 100%;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.5);
   }
+  
+  &:focus {
+    outline: none;
+  }
+`;
 
-  const settings = {
-    accessibility: true,
-    arrows: false,
-    dots: false,
-    draggable: true,
-    swipe: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    beforeChange: (old, next) => setSlide(next + 1)
-  };
+export default function Work() {
+  const [activeFilter, setActiveFilter] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const PreviousIcon = require("../assets/icons/left-arrow.png");
-  const NextIcon = require("../assets/icons/right-arrow.png");
+  const filters = [
+    { id: 'all', label: 'All Projects' },
+    { id: 'frontend', label: 'Frontend' },
+    { id: 'fullstack', label: 'Full Stack' },
+    { id: 'ai', label: 'AI/ML' }
+  ];
 
-  const CaseOne = require("../assets/cases/notefy-hero.webp");
-  const CaseTwo = require("../assets/cases/financify-hero.webp");
-  const CaseThree = require("../assets/cases/terminal-hero.webp");
-
-  const handleCaseSwap = (e, uri) =>
-    e.x < coord + 15 && e.x > coord - 15 && setCase(uri);
+  const filteredProjects = projects.filter(project => {
+    const matchesFilter = activeFilter === 'all' || project.category === activeFilter;
+    const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         project.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
 
   return (
-    <>
-      <Wrapper>
-        <HomeLink onClick={() => setAnimeHome(true)} animating={animateHome}>
-          <TextLink>Home</TextLink>
-        </HomeLink>
-        <Section>
-          <SliderContainer {...settings} ref={carousel} toCase={!!toCase}>
-            <div>
-              <SlideWrapper>
-                <LinkWrap coverImage={CaseOne} href="https://notefy.servatom.com/" target="_blank">
-                  <Overlay
-                    active={!!toCase}
-                    onMouseDown={e => setCoords(e.nativeEvent.x)}
-                    onMouseUp={e => handleCaseSwap(e.nativeEvent, "/")}
-                  >
-                    <ContentWrap>
-                      <CaseTitle>
-                        Notefy
-                        <Spanner />
-                      </CaseTitle>
-                      <Subtitle>Frontend</Subtitle>
-                      <Subtitle>Servatom</Subtitle>
-                    </ContentWrap>
-                  </Overlay>
-                </LinkWrap>
-              </SlideWrapper>
-            </div>
-            <div>
-              <SlideWrapper>
-                <LinkWrap coverImage={CaseTwo} href="https://financify-zeta.netlify.app/" target="_blank">
-                  <Overlay>
-                    <ContentWrap>
-                      <CaseTitle>
-                        Financify
-                        <Spanner />
-                      </CaseTitle>
-                      <Subtitle>Frontend . Back-End</Subtitle>
-                      <Subtitle>Zeta Hacks</Subtitle>
-                    </ContentWrap>
-                  </Overlay>
-                </LinkWrap>
-              </SlideWrapper>
-            </div>
-            <div>
-              <SlideWrapper>
-                <LinkWrap coverImage={CaseThree} href="https://github.com/mannadamay12/TerminalChat" target="_blank">
-                  <Overlay>
-                    <ContentWrap>
-                      <CaseTitle>
-                        Terminal Chat
-                        <Spanner />
-                      </CaseTitle>
-                      <Subtitle>Node, Express</Subtitle>
-                      <Subtitle>Windows Terminal</Subtitle>
-                    </ContentWrap>
-                  </Overlay>
-                </LinkWrap>
-              </SlideWrapper>
-            </div>
-          </SliderContainer>
-          <NumberList navigating={!!toCase}>
-            <SlickSwitch onClick={() => carousel.current.slickPrev()}>
-              <Button src={PreviousIcon} alt="Previous case" />
-            </SlickSwitch>
-            <Current>
-              <p>0{currentSlide} / 03</p>
-            </Current>
-            <SlickSwitch onClick={() => carousel.current.slickNext()}>
-              <Button src={NextIcon} alt="Next case" />
-            </SlickSwitch>
-          </NumberList>
-        </Section>
-      </Wrapper>
-    </>
-  );
-};
+    <WorkContainer
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <WorkHeader>
+        <Title>My Projects</Title>
+        <Subtitle>
+          A collection of projects that showcase my skills in web development,
+          machine learning, and creative problem-solving.
+        </Subtitle>
+        
+        <SearchBar>
+          <Search size={20} color="white" />
+          <SearchInput
+            type="text"
+            placeholder="Search projects..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </SearchBar>
 
-export default withRouter(Work);
+        <FilterSection>
+          {filters.map(filter => (
+            <FilterButton
+              key={filter.id}
+              active={activeFilter === filter.id}
+              onClick={() => setActiveFilter(filter.id)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {filter.label}
+            </FilterButton>
+          ))}
+        </FilterSection>
+      </WorkHeader>
+
+      <ProjectGrid>
+        <AnimatePresence mode="wait">
+          {filteredProjects.map(project => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </AnimatePresence>
+      </ProjectGrid>
+    </WorkContainer>
+  );
+}
