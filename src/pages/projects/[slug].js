@@ -89,25 +89,41 @@ const ProjectLink = styled(motion.a)`
 `;
 
 export async function getStaticPaths() {
-  // ... your paths logic
+  // Generate paths from your projects array
+  const paths = projects.map(project => ({
+    params: { slug: project.id }
+  }))
+
+  return {
+    paths,
+    fallback: false // Show 404 for any paths not returned by getStaticPaths
+  }
 }
 
 export async function getStaticProps({ params }) {
-  // ... your props logic
+  // Find the project data for this slug
+  const project = projects.find(p => p.id === params.slug)
+
+  // If project not found, return 404
+  if (!project) {
+    return {
+      notFound: true
+    }
+  }
+
+  return {
+    props: {
+      project
+    }
+  }
 }
 
-export default function ProjectPage() {
-  const router = useRouter();
-  const { slug } = router.query;
-  const project = projects.find(p => p.id === slug);
+export default function ProjectPage({ project }) {
+  const router = useRouter()
 
-  useEffect(() => {
-    if (!project && slug) {
-      router.push('/404');
-    }
-  }, [project, slug, router]);
-
-  if (!project) return null;
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
 
   return (
     <ProjectContainer
@@ -180,5 +196,5 @@ export default function ProjectPage() {
         </div>
       </ContentSection>
     </ProjectContainer>
-  );
+  )
 }
