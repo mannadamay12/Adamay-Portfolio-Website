@@ -1,5 +1,5 @@
 import { ThemeProvider } from 'styled-components'
-import { theme } from '../styles/theme' // adjust path as needed
+import { theme } from '../src/styles/theme' // Update the import path
 
 function MyApp({ Component, pageProps }) {
   return (
