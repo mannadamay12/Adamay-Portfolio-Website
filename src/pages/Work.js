@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
-import ProjectCard from '../components/Work/ProjectCard';
+import ProjectCard from '../components/work/ProjectCard';
 import { Filter, Search } from 'lucide-react';
 import { projects } from '../utils/projects';
 

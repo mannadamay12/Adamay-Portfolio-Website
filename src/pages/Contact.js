@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, FileText } from 'lucide-react';
-import ContactForm from '../components/Contact/ContactForm';
+import ContactForm from '../components/contact/ContactForm';
 
 const ContactContainer = styled(motion.main)`
   min-height: 100vh;

@@ -3,11 +3,9 @@ const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
     compiler: {
-        styledComponents: {
-            ssr: true,
-            displayName: true
-        }
-    }
-}
-
-module.exports = nextConfig
+      styledComponents: true
+    },
+    output: 'standalone'
+  }
+  
+  module.exports = nextConfig

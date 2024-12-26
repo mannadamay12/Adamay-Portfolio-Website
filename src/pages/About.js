@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import TimelineSection from '../components/About/TimelineSection';
-import SkillsSection from '../components/About/SkillsSection';
+import TimelineSection from '../components/about/TimelineSection';
+import SkillsSection from '../components/about/SkillsSection';
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 
 const AboutContainer = styled(motion.main)`
