@@ -84,10 +84,10 @@ const linkVariants = {
 
 const NavigationLinks = [
   { href: "/", text: "Home" },
-  { href: "/about", text: "About" },
-  { href: "/work", text: "Work" },
+  { href: "/About", text: "About" },
+  { href: "/Work", text: "Work" },
   { href: "/blog", text: "Blog" },
-  { href: "/contact", text: "Contact" }
+  { href: "/Contact", text: "Contact" }
 ];
 
 export default function Navigation({ isOpen, setIsOpen }) {
