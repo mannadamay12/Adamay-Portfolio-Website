@@ -5,7 +5,7 @@ import { GlobalStyles } from '../styles/GlobalStyles';
 import Layout from '../components/Layout/Layout';
 import Head from 'next/head';
 import { SEO } from '../utils/seo';
-
+import { Analytics } from "@vercel/analytics/react"
 function MyApp({ Component, pageProps, router }) {
   return (
     <ThemeProvider theme={theme}>
@@ -31,6 +31,7 @@ function MyApp({ Component, pageProps, router }) {
           <Component {...pageProps} key={router.route} />
         </AnimatePresence>
       </Layout>
+      <Analytics/>
     </ThemeProvider>
   );
 }
