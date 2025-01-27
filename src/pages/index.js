@@ -99,6 +99,8 @@ export default function Home() {
               2000,
               'AI enthusiast by night 🧑🏻‍💻',
               2000,
+              'Check out my blogs below!',
+              2000,
             ]}
             wrapper="span"
             repeat={Infinity}
@@ -108,7 +110,7 @@ export default function Home() {
 
       <ImageSection>
         <BackgroundImage
-          src="/images/cover-img.webp"
+          src="/images/hero.webp"
           alt="Background"
           onLoad={() => setImageLoaded(true)}
           initial={{ scale: 1.1, opacity: 0 }}
