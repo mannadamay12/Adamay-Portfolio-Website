@@ -1,5 +1,16 @@
 export const projects = [
   {
+    id: 'investiverse',
+    title: 'InvestiVerse',
+    description: 'Gamifying Investing for Everyone',
+    category: ['fullstack'],
+    longDescription: `A mobile app that gamifies micro-investing, making it accessible and engaging for young adults and those new to investing. Users can learn about basic financial concepts through interactive challenges, earn virtual rewards for completing educational modules, and invest small amounts of money in real stocks or ETFs, mimicking a "stock market game" but with real-world impact`,
+    tags: ['React', 'TypeScript', 'Vite', 'Grok', 'LLama', 'Supabase', 'Tailwind CSS', 'FastAPI'],
+    image: '/images/investiverse.jpeg',
+    link: 'https://www.investiverse.club/',
+    github: 'https://github.com/mannadamay12/investiverse-play'
+  },
+  {
     id: 'mindful',
     title: 'Mindful',
     description: 'AI-powered on-device companion that prioritizes user privacy and wellbeing',
