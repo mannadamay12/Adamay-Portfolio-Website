@@ -80,7 +80,7 @@ const timelineData = [
   {
     id: 1,
     date: "2024 - Present",
-    role: "Master's Student",
+    role: "Master's in Computer Science",
     company: "New York University",
     description: "Pursuing MS in Computer Science with focus on AI and Machine Learning."
   },

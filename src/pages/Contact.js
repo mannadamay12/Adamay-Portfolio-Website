@@ -107,15 +107,6 @@ export default function Contact() {
               <ContactText>meadamann2002@gmail.com</ContactText>
             </ContactLink>
 
-            {/* <ContactLink 
-              href="tel:+13473946913"
-              variants={buttonVariants}
-              whileHover="hover"
-            >
-              <Phone size={24} />
-              <ContactText>+1 (347) 394-6913</ContactText>
-            </ContactLink> */}
-
             <ContactLink 
               href="https://www.google.com/maps/place/New+York"
               target="_blank"

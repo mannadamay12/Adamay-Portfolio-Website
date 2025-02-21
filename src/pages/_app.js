@@ -6,6 +6,7 @@ import Layout from '../components/Layout/Layout';
 import Head from 'next/head';
 import { SEO } from '../utils/seo';
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 function MyApp({ Component, pageProps, router }) {
   return (
     <ThemeProvider theme={theme}>
@@ -32,6 +33,7 @@ function MyApp({ Component, pageProps, router }) {
         </AnimatePresence>
       </Layout>
       <Analytics/>
+      <SpeedInsights/>
     </ThemeProvider>
   );
 }

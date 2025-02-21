@@ -1,5 +1,17 @@
 export const projects = [
   {
+    id: 'simplified-job-tracker',
+    title: 'Job Tracker',
+    description: 'Easily manage your job applications',
+    category: ['fullstack'],
+    longDescription: `A streamlit app that helps users track their job applications,
+    providing a simple and effective way to manage job search progress.`,
+    tags: ['Python', 'Streamlit', 'Pandas'],
+    image: '/images/jbt.webp',
+    link: 'https://job-tracker-ez.streamlit.app/',
+    github: 'https://github.com/Sachin1801/Simplified_Job_Tracker/tree/v1'
+  },
+  {
     id: 'investiverse',
     title: 'InvestiVerse',
     description: 'Gamifying Investing for Everyone',

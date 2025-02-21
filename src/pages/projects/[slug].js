@@ -89,7 +89,7 @@ const ProjectLink = styled(motion.a)`
 `;
 
 export async function getStaticPaths() {
-  // Generate paths from your projects array
+  // Generate paths from the projects array
   const paths = projects.map(project => ({
     params: { slug: project.id }
   }))
