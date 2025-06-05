@@ -7,9 +7,12 @@ import Head from 'next/head';
 import { SEO } from '../utils/seo';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Toaster } from 'react-hot-toast';
+
 function MyApp({ Component, pageProps, router }) {
   return (
     <ThemeProvider theme={theme}>
+      <Toaster position="top-right" />
       <GlobalStyles />
       <Head>
         <title>{SEO.title}</title>

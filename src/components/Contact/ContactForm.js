@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Send, Loader } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 const Form = styled.form`
   display: flex;
@@ -82,20 +83,62 @@ export default function ContactForm() {
   const [formState, setFormState] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    website: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  // Helper to clear error for a field as user types
+  const handleFieldChange = (field, value) => {
+    setFormState(prev => ({ ...prev, [field]: value }));
+    if (errors[field]) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[field];
+        return newErrors;
+      });
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
-    // Here you would add your form submission logic
-    await new Promise(resolve => setTimeout(resolve, 1500)); // Simulated delay
-    
+    // Simple validation
+    const newErrors = {};
+    if (!formState.name.trim()) newErrors.name = 'Name is required';
+    if (!formState.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(formState.email)) {
+      newErrors.email = 'Email is invalid';
+    }
+    if (!formState.message.trim()) newErrors.message = 'Message is required';
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) {
+      toast.error('Please fill in all required fields correctly.');
+      return;
+    }
+
+    setIsSubmitting(true);
+  
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formState),
+    });
+  
     setIsSubmitting(false);
-    setFormState({ name: '', email: '', message: '' });
-    alert('Message sent successfully!'); // Replace with better notification
+  
+    if (res.ok) {
+      setFormState({ name: '', email: '', message: '', website: '' });
+      setErrors({});
+      toast.success('Message sent successfully!');
+    } else {
+      const { error } = await res.json();
+      toast.error(error || 'Failed to send message.');
+    }
   };
 
   return (
@@ -108,20 +151,22 @@ export default function ContactForm() {
           id="name"
           type="text"
           value={formState.name}
-          onChange={(e) => setFormState(prev => ({ ...prev, name: e.target.value }))}
-          required
+          onChange={(e) => handleFieldChange('name', e.target.value)}
+          aria-invalid={!!errors.name}
         />
+        {errors.name && <span style={{ color: 'red', fontSize: '0.9em' }}>{errors.name}</span>}
       </InputGroup>
 
       <InputGroup>
         <Label htmlFor="email">Email</Label>
         <Input
           id="email"
-          type="email"
+          type="text"
           value={formState.email}
-          onChange={(e) => setFormState(prev => ({ ...prev, email: e.target.value }))}
-          required
+          onChange={(e) => handleFieldChange('email', e.target.value)}
+          aria-invalid={!!errors.email}
         />
+        {errors.email && <span style={{ color: 'red', fontSize: '0.9em' }}>{errors.email}</span>}
       </InputGroup>
 
       <InputGroup>
@@ -129,10 +174,22 @@ export default function ContactForm() {
         <TextArea
           id="message"
           value={formState.message}
-          onChange={(e) => setFormState(prev => ({ ...prev, message: e.target.value }))}
-          required
+          onChange={(e) => handleFieldChange('message', e.target.value)}
+          aria-invalid={!!errors.message}
         />
+        {errors.message && <span style={{ color: 'red', fontSize: '0.9em' }}>{errors.message}</span>}
       </InputGroup>
+
+      <Input
+        type="text"
+        name="website"
+        style={{ display: 'none' }}
+        tabIndex={-1}
+        autoComplete="off"
+        value={formState.website || ''}
+        onChange={e => setFormState(prev => ({ ...prev, website: e.target.value }))}
+        aria-hidden="true"
+      />
 
       <SubmitButton
         type="submit"
