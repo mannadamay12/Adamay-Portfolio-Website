@@ -1,5 +1,16 @@
 export const projects = [
   {
+    id: 'neuromath',
+    title: 'NeuroMath',
+    description: 'Adaptive learning platform using BCI and eye-tracking for personalized math education',
+    category: ['BCI', 'ai'],
+    longDescription: `NEUROMATH is a Human-Computer Interaction (HCI) project developed as part of NYU Spring 2025 coursework. It is an innovative adaptive learning platform that leverages Brain-Computer Interface (BCI) and eye-tracking technologies to personalize and optimize the learning experience for mathematical concepts. The project integrates EEG-based cognitive state monitoring, gaze tracking, and AI-powered content delivery using EMOTIV EPOC X headset to detect when a learner is confused, disengaged, or attentive, adapting the pace and style of educational content accordingly.`,
+    tags: ['Python', 'EEG', 'Eye Tracking', 'Manim', 'FastAPI', 'LSL', 'AI', 'EMOTIV EPOC X'],
+    image: '/images/neuromath.webp',
+    link: 'https://github.com/mannadamay12/neuromath',
+    github: 'https://github.com/mannadamay12/neuromath'
+  },
+  {
     id: 'simplified-job-tracker',
     title: 'Job Tracker',
     description: 'Easily manage your job applications',
