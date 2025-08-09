@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
+import Image from 'next/image';
 
 const HomeContainer = styled(motion.main)`
   height: 100vh;
@@ -35,10 +36,13 @@ const ImageSection = styled(motion.section)`
 `;
 
 const Title = styled(motion.h1)`
+  font-family: ${props => props.theme.fonts.families.mono};
   font-size: ${props => props.theme.fonts.sizes.large};
+  font-weight: 800;
   color: ${props => props.theme.colors.white};
   line-height: 1;
   margin-bottom: 2rem;
+  letter-spacing: -0.02em;
 `;
 
 const Subtitle = styled(motion.div)`
@@ -51,9 +55,16 @@ const Subtitle = styled(motion.div)`
   }
 `;
 
-const BackgroundImage = styled(motion.img)`
+const ImageWrapper = styled(motion.div)`
   width: 100%;
   height: 100%;
+  position: relative;
+  background: ${props => props.$hasError ? 
+    `linear-gradient(135deg, ${props.theme.colors.blue} 0%, ${props.theme.colors.lightBlue} 100%)` : 
+    'transparent'};
+`;
+
+const StyledImage = styled(Image)`
   object-fit: cover;
 `;
 
@@ -69,6 +80,7 @@ const NavigationHint = styled(motion.div)`
 
 export default function Home() {
   const [isImageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   return (
     <HomeContainer
@@ -109,17 +121,29 @@ export default function Home() {
       </ContentSection>
 
       <ImageSection>
-        <BackgroundImage
-          src="/images/hero.webp"
-          alt="Background"
-          onLoad={() => setImageLoaded(true)}
+        <ImageWrapper
+          $hasError={imageError}
           initial={{ scale: 1.1, opacity: 0 }}
           animate={{ 
             scale: 1, 
             opacity: isImageLoaded ? 1 : 0 
           }}
           transition={{ duration: 0.5 }}
-        />
+        >
+          <StyledImage
+            src="/images/hero.webp"
+            alt="Background"
+            fill
+            priority
+            quality={90}
+            onLoad={() => setImageLoaded(true)}
+            onError={() => {
+              console.error('Failed to load hero image');
+              setImageError(true);
+              setImageLoaded(true); // Still show the section even if image fails
+            }}
+          />
+        </ImageWrapper>
       </ImageSection>
 
       <NavigationHint

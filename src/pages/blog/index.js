@@ -16,8 +16,11 @@ const BlogHeader = styled.div`
 `;
 
 const BlogTitle = styled.h1`
+  font-family: ${props => props.theme.fonts.families.mono};
   font-size: 3rem;
+  font-weight: 800;
   color: white;
+  letter-spacing: -0.02em;
   margin-bottom: 1rem;
 `;
 

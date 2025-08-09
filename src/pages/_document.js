@@ -58,9 +58,17 @@ export default class MyDocument extends Document {
           <meta property="twitter:description" content="Portfolio of Adamay Mann, a MERN stack developer and AI enthusiast studying at NYU." />
           <meta property="twitter:image" content="https://adamaymann.servatom.com/og-image.jpg" />
           
+          {/* Preload critical images */}
+          <link
+            rel="preload"
+            as="image"
+            href="/images/hero.webp"
+            type="image/webp"
+          />
+          
           {/* Fonts */}
           <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap"
             rel="stylesheet"
           />
         </Head>

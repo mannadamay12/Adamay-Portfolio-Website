@@ -29,9 +29,13 @@ export const theme = {
     }
   },
   fonts: {
+    families: {
+      mono: "'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace",
+      sans: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
+    },
     sizes: {
       huge: "12em",
-      large: "10em",
+      large: "10em", 
       medium: "8em",
       small: "2.25em",
       tiny: "1.8em"

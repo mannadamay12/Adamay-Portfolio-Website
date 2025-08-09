@@ -16,7 +16,10 @@ const NotFoundContainer = styled(motion.div)`
 `;
 
 const Title = styled.h1`
+  font-family: ${props => props.theme.fonts.families.mono};
   font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
   margin-bottom: 1rem;
   color: ${props => props.theme.colors.lightBlue};
 `;

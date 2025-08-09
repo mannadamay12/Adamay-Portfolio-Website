@@ -28,8 +28,11 @@ const Hero = styled.section`
 `;
 
 const Title = styled(motion.h1)`
+  font-family: ${props => props.theme.fonts.families.mono};
   font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
   color: ${props => props.theme.colors.white};
+  letter-spacing: -0.02em;
   margin-bottom: 2rem;
 `;
 
@@ -95,7 +98,7 @@ export default function About() {
           <SocialIcon href="https://x.com/adamay_mann">
             <Twitter size={32} />
           </SocialIcon>
-          <SocialIcon href="mailto:meadamann2002@gmail.com">
+          <SocialIcon href="mailto:mannadamay@gmail.com">
             <Mail size={32} />
           </SocialIcon>
         </SocialLinks>

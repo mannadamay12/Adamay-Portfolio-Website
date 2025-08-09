@@ -8,7 +8,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   html, body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: ${props => props.theme.fonts.families.sans};
     background: ${props => props.theme.colors.blue};
     color: ${props => props.theme.colors.white};
     overflow-x: hidden;

@@ -18,8 +18,11 @@ const WorkHeader = styled.div`
 `;
 
 const Title = styled.h1`
+  font-family: ${props => props.theme.fonts.families.mono};
   color: white;
   font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
   margin-bottom: 1rem;
 `;
 

@@ -35,7 +35,10 @@ const ContactCard = styled(motion.div)`
 `;
 
 const ContactTitle = styled.h1`
+  font-family: ${props => props.theme.fonts.families.mono};
   font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   margin-bottom: 2rem;
   text-align: center;
 `;
@@ -99,12 +102,12 @@ export default function Contact() {
           <ContactTitle>Get in Touch</ContactTitle>
           <ContactLinks>
             <ContactLink 
-              href="mailto:meadamann2002@gmail.com"
+              href="mailto:mannadamay@gmail.com"
               variants={buttonVariants}
               whileHover="hover"
             >
               <Mail size={24} />
-              <ContactText>meadamann2002@gmail.com</ContactText>
+              <ContactText>mannadamay@gmail.com</ContactText>
             </ContactLink>
 
             <ContactLink 

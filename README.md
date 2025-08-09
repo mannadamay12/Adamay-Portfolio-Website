@@ -76,6 +76,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-Adamay Mann - [meadamann2002@gmail.com](mailto:meadamann2002@gmail.com)
+Adamay Mann - [mannadamay@gmail.com](mailto:mannadamay@gmail.com)
 
 Project Link: [https://adamaymann.servtom.com](https://adamaymann.servatom.com)

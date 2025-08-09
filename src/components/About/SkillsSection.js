@@ -12,8 +12,11 @@ const SkillsWrapper = styled(motion.section)`
 `;
 
 const SkillsTitle = styled.h2`
+  font-family: ${props => props.theme.fonts.families.mono};
   color: ${props => props.theme.colors.white};
   font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   margin-bottom: 3rem;
 `;
 

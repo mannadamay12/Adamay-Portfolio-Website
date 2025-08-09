@@ -74,7 +74,10 @@ const SubmitButton = styled(motion.button)`
 `;
 
 const FormTitle = styled.h2`
+  font-family: ${props => props.theme.fonts.families.mono};
   font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   margin-bottom: 2rem;
   text-align: center;
 `;
